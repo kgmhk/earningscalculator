@@ -4,6 +4,10 @@
     <string name="action_settings">Settings</string>
 
     <string name="hello_world">Hello world!</string>
+
+    <string name="rent_deposit">임대보증금</string>
+    <string name="monthly_rent">월세</string>
+    <string name="market_price">적정가치시세</string>
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.
         For more information, see https://support.google.com/admob/answer/3052638
