@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){
                 Log.i(TAG, " a : " + s.toString());
+                if (s.length() == 0) rent_deposit_edit.setText(0+"");
                 int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
                 int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
                 int result = rentDeposit + (monthlyRent * 200);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){
                 Log.i(TAG, " a : " + s.toString());
+                if (s.length() == 0) monthly_rent_edit.setText(0+"");
                 int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
                 int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
                 int result = rentDeposit + (monthlyRent * 200);

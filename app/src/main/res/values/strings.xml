@@ -8,6 +8,19 @@
     <string name="rent_deposit">임대보증금</string>
     <string name="monthly_rent">월세</string>
     <string name="market_price">적정가치시세</string>
+
+    <string name="cal_rent_revenu_title">임대 수익률 계산</string>
+    <string name="buy_total_price">매입 총 비용</string>
+    <string name="loan_price">대출금</string>
+    <string name="loan_rate">대출이율</string>
+
+    <string name="cal_rent_revenu_result_title">임대 수익률 계산 결과</string>
+    <string name="rent_rate">임대 수익률</string>
+    <string name="real_investment">실투자비</string>
+    <string name="yearly_rent_revenu">연간임대료 수입</string>
+    <string name="yearly_interest">연이자</string>
+    <string name="yearly_pure_revenu">연순수익</string>
+    <string name="monthly_pure_revenu">월순수익</string>
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.
         For more information, see https://support.google.com/admob/answer/3052638
