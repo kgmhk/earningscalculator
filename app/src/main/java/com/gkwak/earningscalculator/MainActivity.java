@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
     // Remove the below line after defining your own ad unit ID.
     private static final String TOAST_TEXT = "Test ads are being shown. "
@@ -44,16 +46,28 @@ public class MainActivity extends AppCompatActivity {
         monthly_rent_edit = (EditText) findViewById(R.id.monthly_rent_edit);
         market_price_edit = (EditText) findViewById(R.id.market_price_edit);
 
+        // 세자리로 끊어서 쉼표 보여주고, 소숫점 셋째짜리까지 보여준다.
+        final DecimalFormat df = new DecimalFormat("###,###.####");
+// 값 셋팅시, StackOverFlow를 막기 위해서, 바뀐 변수를 저장해준다.
+        final String[] result = {""};
+
         rent_deposit_edit.addTextChangedListener(new TextWatcher(){
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){
-                Log.i(TAG, " a : " + s.toString());
-                if (s.length() == 0) rent_deposit_edit.setText(0+"");
-                int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
-                int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
-                int result = rentDeposit + (monthlyRent * 200);
-                market_price_edit.setText(result+"");
+
+                if(!s.toString().equals(result[0])){     // StackOverflow를 막기위해,
+                    result[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
+                    rent_deposit_edit.setText(result[0]);    // 결과 텍스트 셋팅.
+                    rent_deposit_edit.setSelection(result[0].length());     // 커서를 제일 끝으로 보냄.
+                }
+
+//                Log.i(TAG, " a : " + s.toString());
+//                if (s.length() == 0) rent_deposit_edit.setText(0+"");
+//                int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
+//                int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
+//                int result = rentDeposit + (monthlyRent * 200);
+//                market_price_edit.setText(result+"");
             }
         });
         monthly_rent_edit.addTextChangedListener(new TextWatcher(){

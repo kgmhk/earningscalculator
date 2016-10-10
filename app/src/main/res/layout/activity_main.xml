@@ -35,7 +35,8 @@
                     android:ems="10"
                     android:id="@+id/rent_deposit_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -55,11 +56,12 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:ems="10"
                     android:id="@+id/monthly_rent_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical"
+                    android:inputType="number" />
 
             </LinearLayout>
 
@@ -84,7 +86,8 @@
                     android:layout_weight="1"
                     android:editable="false"
                     android:enabled="false"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
         </LinearLayout>
@@ -121,7 +124,8 @@
                     android:ems="10"
                     android:id="@+id/buy_total_price_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -145,7 +149,8 @@
                     android:ems="10"
                     android:id="@+id/loan_price_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -169,7 +174,8 @@
                     android:ems="10"
                     android:id="@+id/loan_rate_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -207,7 +213,8 @@
                     android:ems="10"
                     android:id="@+id/rent_rate_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -231,7 +238,8 @@
                     android:ems="10"
                     android:id="@+id/real_investment_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -255,7 +263,8 @@
                     android:ems="10"
                     android:id="@+id/yearly_rent_revenu_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -279,7 +288,8 @@
                     android:ems="10"
                     android:id="@+id/yearly_interest_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -303,7 +313,8 @@
                     android:ems="10"
                     android:id="@+id/yearly_pure_revenu_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
@@ -327,7 +338,8 @@
                     android:ems="10"
                     android:id="@+id/monthly_pure_revenu_edit"
                     android:layout_weight="1"
-                    android:text="0" />
+                    android:text="0"
+                    android:gravity="right|center_vertical" />
 
             </LinearLayout>
 
