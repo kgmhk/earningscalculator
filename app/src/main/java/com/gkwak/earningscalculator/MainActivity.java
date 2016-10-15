@@ -57,29 +57,36 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count){
 
                 if(!s.toString().equals(result[0])){     // StackOverflow를 막기위해,
+
+                    if (s.length() == 0) rent_deposit_edit.setText(0+"");
+                    Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
+                    Long monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
+                    Long calResult = rentDeposit + (monthlyRent * 200);
+                    market_price_edit.setText(df.format(calResult)+"");
+
                     result[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
                     rent_deposit_edit.setText(result[0]);    // 결과 텍스트 셋팅.
                     rent_deposit_edit.setSelection(result[0].length());     // 커서를 제일 끝으로 보냄.
                 }
-
-//                Log.i(TAG, " a : " + s.toString());
-//                if (s.length() == 0) rent_deposit_edit.setText(0+"");
-//                int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
-//                int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
-//                int result = rentDeposit + (monthlyRent * 200);
-//                market_price_edit.setText(result+"");
             }
         });
         monthly_rent_edit.addTextChangedListener(new TextWatcher(){
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
-            public void onTextChanged(CharSequence s, int start, int before, int count){
-                Log.i(TAG, " a : " + s.toString());
-                if (s.length() == 0) monthly_rent_edit.setText(0+"");
-                int rentDeposit = Integer.parseInt(rent_deposit_edit.getText().toString());
-                int monthlyRent = Integer.parseInt(monthly_rent_edit.getText().toString());
-                int result = rentDeposit + (monthlyRent * 200);
-                market_price_edit.setText(result+"");
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().equals(result[0])) {
+                    Log.i(TAG, " a : " + s.toString());
+                    if (s.length() == 0) monthly_rent_edit.setText(0 + "");
+                    Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
+                    Long monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
+                    Long calResult = rentDeposit + (monthlyRent * 200);
+                    market_price_edit.setText(df.format(calResult) + "");
+
+                    result[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
+                    monthly_rent_edit.setText(result[0]);    // 결과 텍스트 셋팅.
+                    monthly_rent_edit.setSelection(result[0].length());     // 커서를 제일 끝으로 보냄.
+                }
             }
         });
 
