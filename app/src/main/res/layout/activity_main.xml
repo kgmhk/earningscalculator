@@ -13,7 +13,9 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -23,15 +25,39 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/expect_market_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:id="@+id/expect_market_price"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:id="@+id/expect_market_price_help_button" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/rent_deposit_layout">
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/rent_deposit"
-                        android:layout_weight="1"
-                        android:id="@+id/rent_deposit_text" />
+                        android:textSize="10sp"
+                        android:id="@+id/rent_deposit_text"
+                        android:layout_width="100dp" />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -41,12 +67,14 @@
                         android:id="@+id/rent_deposit_edit"
                         android:layout_weight="1"
                         android:text="0"
+                        android:textSize="10sp"
                         android:gravity="right|center_vertical" />
 
                     <TextView
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:textSize="10sp"
                         android:id="@+id/textView2"
                         android:gravity="center" />
 
@@ -59,16 +87,17 @@
                     android:id="@+id/monthly_rent_layout">
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/monthly_rent"
-                        android:layout_weight="1"
-                        android:id="@+id/monthly_rent_text" />
+                        android:textSize="10sp"
+                        android:id="@+id/monthly_rent_text"
+                        android:layout_width="100dp" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        android:textSize="10sp"
                         android:id="@+id/monthly_rent_edit"
                         android:layout_weight="1"
                         android:text="0"
@@ -80,6 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView"
+                        android:textSize="10sp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -88,23 +118,25 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/market_price_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/market_price"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorBlack"
+                        android:id="@+id/market_price_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/market_price"
-                        android:layout_weight="1"
-                        android:id="@+id/market_price_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
                         android:id="@+id/market_price_edit"
                         android:layout_weight="1"
-                        android:editable="false"
-                        android:enabled="false"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="5dp"
                         android:text="0"
                         android:gravity="right|center_vertical" />
 
@@ -113,6 +145,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView3"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorBlack"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -123,12 +157,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:text="@string/cal_rent_revenu_title"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cal_rent_revenu_title"
-                    android:gravity="center" />
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/cal_rent_revenu_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_rent_revenu_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:id="@+id/cal_rent_revenu_help_button" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -137,17 +188,18 @@
                     android:id="@+id/buy_total_price_layout">
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/buy_total_price"
-                        android:layout_weight="1"
-                        android:id="@+id/buy_total_price_text" />
+                        android:textSize="10sp"
+                        android:id="@+id/buy_total_price_text"
+                        android:layout_width="100dp" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:ems="10"
+                        android:textSize="10sp"
                         android:id="@+id/buy_total_price_edit"
                         android:layout_weight="1"
                         android:text="0"
@@ -155,6 +207,7 @@
 
                     <TextView
                         android:text="@string/currency"
+                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView4"
@@ -169,16 +222,17 @@
                     android:id="@+id/loan_price_layout">
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/loan_price"
-                        android:layout_weight="1"
-                        android:id="@+id/loan_price_text" />
+                        android:textSize="10sp"
+                        android:id="@+id/loan_price_text"
+                        android:layout_width="100dp" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:textSize="10sp"
                         android:ems="10"
                         android:id="@+id/loan_price_edit"
                         android:layout_weight="1"
@@ -187,6 +241,7 @@
 
                     <TextView
                         android:text="@string/currency"
+                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView5"
@@ -201,17 +256,18 @@
                     android:id="@+id/loan_rate_layout">
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/loan_rate"
-                        android:layout_weight="1"
-                        android:id="@+id/loan_rate_text" />
+                        android:textSize="10sp"
+                        android:id="@+id/loan_rate_text"
+                        android:layout_width="100dp" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
+                        android:inputType="numberSigned|numberDecimal"
                         android:ems="10"
+                        android:textSize="10sp"
                         android:id="@+id/loan_rate_edit"
                         android:layout_weight="1"
                         android:text="0"
@@ -219,6 +275,7 @@
 
                     <TextView
                         android:text="@string/percent"
+                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView6"
@@ -233,35 +290,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:text="@string/cal_rent_revenu_result_title"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cal_rent_revenu_result_title"
-                    android:gravity="center" />
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/cal_rent_revenu_result_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_rent_revenu_result_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/help_btn_selector"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:id="@+id/cal_rent_revenu_result_help_button" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/rent_rate_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/rent_rate"
+                        android:id="@+id/rent_rate_text"
+                        android:elevation="0dp"
+                        android:textSize="20sp"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/rent_rate"
-                        android:layout_weight="1"
-                        android:id="@+id/rent_rate_text"
-                        android:elevation="0dp"
-                        android:textSize="20sp" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
                         android:id="@+id/rent_rate_edit"
+                        android:textColor="@color/colorAccent"
                         android:layout_weight="1"
+                        android:layout_marginRight="5sp"
                         android:text="0"
                         android:gravity="right|center_vertical"
                         android:textSize="20sp" />
@@ -279,23 +353,22 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/real_investment_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/real_investment"
+                        android:id="@+id/real_investment_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/real_investment"
-                        android:layout_weight="1"
-                        android:id="@+id/real_investment_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
                         android:id="@+id/real_investment_edit"
                         android:layout_weight="1"
                         android:text="0"
+                        android:layout_marginRight="5sp"
                         android:gravity="right|center_vertical" />
 
                     <TextView
@@ -311,22 +384,21 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/yearly_rent_revenu_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/yearly_rent_revenu"
+                        android:id="@+id/yearly_rent_revenu_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/yearly_rent_revenu"
-                        android:layout_weight="1"
-                        android:id="@+id/yearly_rent_revenu_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
                         android:id="@+id/yearly_rent_revenu_edit"
                         android:layout_weight="1"
+                        android:layout_marginRight="5sp"
                         android:text="0"
                         android:gravity="right|center_vertical" />
 
@@ -343,23 +415,22 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/yearly_interest_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/yearly_interest"
+                        android:id="@+id/yearly_interest_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/yearly_interest"
-                        android:layout_weight="1"
-                        android:id="@+id/yearly_interest_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
                         android:id="@+id/yearly_interest_edit"
                         android:layout_weight="1"
                         android:text="0"
+                        android:layout_marginRight="5sp"
                         android:gravity="right|center_vertical" />
 
                     <TextView
@@ -375,20 +446,19 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/yearly_pure_revenu_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/yearly_pure_revenu"
+                        android:id="@+id/yearly_pure_revenu_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/yearly_pure_revenu"
-                        android:layout_weight="1"
-                        android:id="@+id/yearly_pure_revenu_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
+                        android:layout_marginRight="5sp"
                         android:id="@+id/yearly_pure_revenu_edit"
                         android:layout_weight="1"
                         android:text="0"
@@ -407,20 +477,19 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10sp"
                     android:id="@+id/monthly_pure_revenu_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/monthly_pure_revenu"
+                        android:id="@+id/monthly_pure_revenu_text"
+                        android:layout_width="100dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/monthly_pure_revenu"
-                        android:layout_weight="1"
-                        android:id="@+id/monthly_pure_revenu_text" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
+                        android:layout_marginRight="5sp"
                         android:id="@+id/monthly_pure_revenu_edit"
                         android:layout_weight="1"
                         android:text="0"

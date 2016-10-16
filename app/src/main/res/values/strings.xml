@@ -8,6 +8,7 @@
     <string name="rent_deposit">임대보증금</string>
     <string name="monthly_rent">월세</string>
     <string name="market_price">적정가치시세</string>
+    <string name="expect_market_price">임대료 추정 적정가치시세</string>
 
     <string name="cal_rent_revenu_title">임대 수익률 계산</string>
     <string name="buy_total_price">매입 총 비용</string>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "593841150024",
+    "firebase_url": "https://admob-app-id-7180980878.firebaseio.com",
+    "project_id": "admob-app-id-7180980878",
+    "storage_bucket": "admob-app-id-7180980878.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593841150024:android:40c0dc168a58fefb",
+        "android_client_info": {
+          "package_name": "com.gkwak.earningscalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593841150024-ndfsa4cqni032vunqu3d4qivqm77vvu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0f6dqiXm-SFxLh65eT8RxIbQG7edpTjQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
