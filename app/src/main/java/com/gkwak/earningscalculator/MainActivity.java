@@ -1,16 +1,28 @@
 package com.gkwak.earningscalculator;
 
+import com.gkwak.earningscalculator.interfaces.PopupEnum;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
             + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
     private static final String TAG = "MAIN_ACTIVITY";
 
+    private PopupWindow pwindo;
     private EditText monthly_rent_edit, rent_deposit_edit, buy_total_price_edit,
             loan_price_edit, loan_rate_edit;
     private TextView market_price_edit, rent_rate_edit, yearly_rent_revenu_edit,
             yearly_interest_edit, real_investment_edit, yearly_pure_revenu_edit,
             monthly_pure_revenu_edit;
+    private ImageButton expect_market_price_help_button, cal_rent_revenu_help_button, cal_rent_revenu_result_help_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         yearly_pure_revenu_edit = (TextView) findViewById(R.id.yearly_pure_revenu_edit);
         monthly_pure_revenu_edit = (TextView) findViewById(R.id.monthly_pure_revenu_edit);
 
+        expect_market_price_help_button = (ImageButton) findViewById(R.id.expect_market_price_help_button);
+        cal_rent_revenu_help_button = (ImageButton) findViewById(R.id.cal_rent_revenu_help_button);
+        cal_rent_revenu_result_help_button = (ImageButton) findViewById(R.id.cal_rent_revenu_result_help_button);
+
         // 세자리로 끊어서 쉼표 보여주고, 소숫점 셋째짜리까지 보여준다.
         final DecimalFormat df = new DecimalFormat("###,###.####");
 // 값 셋팅시, StackOverFlow를 막기 위해서, 바뀐 변수를 저장해준다.
@@ -68,6 +86,29 @@ public class MainActivity extends AppCompatActivity {
         final String[] buy_total_price_result = {""};
         final String[] loan_price_result = {""};
         final String[] loan_rate_result = {""};
+
+        // help button
+        expect_market_price_help_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "expect_market_price_help_button");
+                helpPopupWindow(PopupEnum.EXPECT_MARKET_PRICE);
+            }
+        });
+        cal_rent_revenu_help_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "cal_rent_revenu_help_button");
+                helpPopupWindow(PopupEnum.CAL_RENT_REVENU);
+            }
+        });
+        cal_rent_revenu_result_help_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "cal_rent_revenu_result_help_button");
+                helpPopupWindow(PopupEnum.CAL_RESULT_RENT_REVENU);
+            }
+        });
 
         // 1st Layout
         rent_deposit_edit.addTextChangedListener(new TextWatcher(){
@@ -245,6 +286,65 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void helpPopupWindow(PopupEnum popupEnum) {
+        final View layout;
+        try {
+            //  LayoutInflater 객체와 시킴
+            final LayoutInflater inflater = (LayoutInflater) MainActivity.this
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            layout = inflater.inflate(R.layout.help_popup,
+                    (ViewGroup) findViewById(R.id.help_popup_element));
+
+            final LinearLayout top = (LinearLayout) layout.findViewById(R.id.help_popup_linear);
+            TextView title = (TextView) layout.findViewById(R.id.help_popup_title);
+            Button help_popup_btn = (Button) layout.findViewById(R.id.help_popup_btn);
+
+//            if (mHeightPixels <= 800) windowHeight = 200;
+            pwindo = new PopupWindow(layout,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            TextView tv1 = new TextView(this);
+            TextView tv2 = new TextView(this);
+
+            switch (popupEnum) {
+                case EXPECT_MARKET_PRICE:
+                    title.setText(R.string.expect_market_price);
+                    tv1.setText(R.string.expect_market_price_detail_1);
+                    tv2.setText(R.string.expect_market_price_detail_2);
+                    top.addView(tv1);
+                    top.addView(tv2);
+                    break;
+                case CAL_RENT_REVENU:
+                    title.setText(R.string.cal_rent_revenu_title);
+                    tv1.setText(R.string.cal_rent_revenu_detail_1);
+                    tv2.setText(R.string.cal_rent_revenu_detail_2);
+                    top.addView(tv1);
+                    top.addView(tv2);
+                    break;
+                case CAL_RESULT_RENT_REVENU:
+                    title.setText(R.string.cal_rent_revenu_result_title);
+                    tv1.setText(R.string.cal_rent_revenu_result_detail_1);
+                    tv2.setText(R.string.cal_rent_revenu_result_detail_2);
+                    top.addView(tv1);
+                    top.addView(tv2);
+                    break;
+                default:
+                    title.setText(R.string.expect_market_price);
+                    break;
+            }
+
+            help_popup_btn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    pwindo.dismiss();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
