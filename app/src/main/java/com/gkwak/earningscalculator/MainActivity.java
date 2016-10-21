@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             loan_price_edit, loan_rate_edit;
     private TextView market_price_edit, rent_rate_edit, yearly_rent_revenu_edit,
             yearly_interest_edit, real_investment_edit, yearly_pure_revenu_edit,
-            monthly_pure_revenu_edit;
+            monthly_pure_revenu_edit, monthly_interest_edit;
     private ImageButton expect_market_price_help_button, cal_rent_revenu_help_button, cal_rent_revenu_result_help_button;
 
     @Override
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         real_investment_edit = (TextView) findViewById(R.id.real_investment_edit);
         yearly_pure_revenu_edit = (TextView) findViewById(R.id.yearly_pure_revenu_edit);
         monthly_pure_revenu_edit = (TextView) findViewById(R.id.monthly_pure_revenu_edit);
+        monthly_interest_edit = (TextView) findViewById(R.id.monthly_interest_edit);
 
         expect_market_price_help_button = (ImageButton) findViewById(R.id.expect_market_price_help_button);
         cal_rent_revenu_help_button = (ImageButton) findViewById(R.id.cal_rent_revenu_help_button);
@@ -251,7 +252,9 @@ public class MainActivity extends AppCompatActivity {
                 Long yearlyRentRevenu = Long.parseLong(yearly_rent_revenu_edit.getText().toString().replaceAll(",", ""));
                 Long yearlyInterest = Long.parseLong(yearly_interest_edit.getText().toString().replaceAll(",", ""));
                 Long yearlyPureRevenuCalResult = yearlyRentRevenu - yearlyInterest;
+                Long monthlyInterest = yearlyInterest / 12;
 
+                monthly_interest_edit.setText(df.format(monthlyInterest));
                 yearly_pure_revenu_edit.setText(df.format(yearlyPureRevenuCalResult));
             }
         });

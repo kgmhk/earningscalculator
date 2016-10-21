@@ -26,6 +26,7 @@
     <string name="yearly_rent_revenu">연간임대료 수입</string>
     <string name="yearly_interest">연이자</string>
     <string name="yearly_pure_revenu">연순수익</string>
+    <string name="monthly_interest">월이자</string>
     <string name="monthly_pure_revenu">월순수익</string>
     <string name="currency">원</string>
     <string name="percent">%</string>
