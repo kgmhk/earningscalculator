@@ -119,14 +119,21 @@ public class MainActivity extends AppCompatActivity {
 
                 if(!s.toString().equals(rent_deposit_result[0])){     // StackOverflow를 막기위해,
 
-                    if (s.length() == 0) rent_deposit_edit.setText(0+"");
+                    if (s.length() == 0) return;
                     Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
-                    Long monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
+                    Long monthlyRent = 0L;
+                    Long buyTotalPrice = 0L;
+                    Long loanPrice = 0L;
+                    if (monthly_rent_edit.getText().toString().length() != 0)
+                        monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
+                    if (buy_total_price_edit.getText().toString().length() != 0)
+                        buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
+                    if (loan_price_edit.getText().toString().length() != 0)
+                        loanPrice = Long.parseLong(loan_price_edit.getText().toString().replaceAll(",", ""));
+
                     Long calResult = rentDeposit + (monthlyRent * 200);
                     market_price_edit.setText(df.format(calResult)+"");
 
-                    Long buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
-                    Long loanPrice = Long.parseLong(loan_price_edit.getText().toString().replaceAll(",", ""));
                     Long realInvestmentCalResult = buyTotalPrice - rentDeposit - loanPrice;
                     real_investment_edit.setText(df.format(realInvestmentCalResult)); // 실투자비
 
@@ -143,9 +150,13 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!s.toString().equals(monthly_rent_result[0])) {
                     Log.i(TAG, " a : " + s.toString());
-                    if (s.length() == 0) monthly_rent_edit.setText(0 + "");
-                    Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
-                    Long monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
+                    if (s.length() == 0) return;
+                    Long rentDeposit = 0L;
+                    Long monthlyRent = 0L;
+                    if (rent_deposit_edit.getText().toString().length() != 0)
+                        rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
+                    if (monthly_rent_edit.getText().toString().length() != 0)
+                        monthlyRent = Long.parseLong(monthly_rent_edit.getText().toString().replaceAll(",", ""));
 
                     Long calResult = rentDeposit + (monthlyRent * 200);
                     market_price_edit.setText(df.format(calResult) + ""); // 적정시세
@@ -168,11 +179,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!s.toString().equals(buy_total_price_result[0])) {
                     Log.i(TAG, " a : " + s.toString());
-                    if (s.length() == 0) buy_total_price_edit.setText(0 + "");
-
-                    Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
-                    Long buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
-                    Long loanPrice = Long.parseLong(loan_price_edit.getText().toString().replaceAll(",", ""));
+                    if (s.length() == 0) return;
+                    Long rentDeposit = 0L;
+                    Long loanPrice = 0L;
+                    Long buyTotalPrice = 0L;
+                    if (rent_deposit_edit.getText().toString().length() != 0)
+                        rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
+                    if (buy_total_price_edit.getText().toString().length() != 0)
+                        buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
+                    if (loan_price_edit.getText().toString().length() != 0)
+                        loanPrice = Long.parseLong(loan_price_edit.getText().toString().replaceAll(",", ""));
                     Long realInvestmentCalResult = buyTotalPrice - rentDeposit - loanPrice;
                     real_investment_edit.setText(df.format(realInvestmentCalResult)); // 실투자비
 
@@ -189,18 +205,24 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!s.toString().equals(loan_price_result[0])) {
                     Log.i(TAG, " a : " + s.toString());
-                    if (s.length() == 0) {
-                        loan_price_edit.setText(0 + "");
-                        return;
-                    }
-                    Float loanPrice = Float.parseFloat(loan_price_edit.getText().toString().replaceAll(",", ""));
-                    Float loanRate = Float.parseFloat(loan_rate_edit.getText().toString().replaceAll(",", ""));
-                    Float yearlyRevenuCalResult = (loanPrice * loanRate) / 100;
+                    if (s.length() == 0) return;
+                    Float loanPrice = 0F;
+                    Float loanRate = 0F;
+                    if (loan_price_edit.getText().toString().length() != 0)
+                        loanPrice = Float.parseFloat(loan_price_edit.getText().toString().replaceAll(",", ""));
+                    if (loan_rate_edit.getText().toString().length() != 0)
+                        loanRate = Float.parseFloat(loan_rate_edit.getText().toString().replaceAll(",", ""));
 
+                    Float yearlyRevenuCalResult = (loanPrice * loanRate) / 100;
                     yearly_interest_edit.setText(df.format(Math.round(yearlyRevenuCalResult)));
 
-                    Long rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
-                    Long buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
+
+                    Long rentDeposit = 0L;
+                    Long buyTotalPrice = 0L;
+                    if (rent_deposit_edit.getText().toString().length() != 0)
+                        rentDeposit = Long.parseLong(rent_deposit_edit.getText().toString().replaceAll(",", ""));
+                    if (buy_total_price_edit.getText().toString().length() != 0)
+                        buyTotalPrice = Long.parseLong(buy_total_price_edit.getText().toString().replaceAll(",", ""));
                     Long realInvestmentCalResult = buyTotalPrice - rentDeposit - Math.round(loanPrice);
                     real_investment_edit.setText(df.format(realInvestmentCalResult)); // 실투자비
 
@@ -216,16 +238,16 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (!s.toString().equals(loan_rate_result[0])) {
-//                    Log.i(TAG, " a : " + s.toString());
-                    if (s.length() == 0) {
-                        loan_rate_edit.setText(0 + "");
-                        return;
-                    }
+                    if (s.length() == 0) return;
 
-                    Float loanPrice = Float.parseFloat(loan_price_edit.getText().toString().replaceAll(",", ""));
-                    Float loanRate = Float.parseFloat(loan_rate_edit.getText().toString().replaceAll(",", ""));
+                    Float loanPrice = 0F;
+                    Float loanRate = 0F;
+                    if (loan_price_edit.getText().toString().length() != 0)
+                        loanPrice = Float.parseFloat(loan_price_edit.getText().toString().replaceAll(",", ""));
+                    if (loan_rate_edit.getText().toString().length() != 0)
+                        loanRate = Float.parseFloat(loan_rate_edit.getText().toString().replaceAll(",", ""));
+
                     Float yearlyRevenuCalResult = (loanPrice * loanRate) / 100;
-
                     yearly_interest_edit.setText(df.format(Math.round(yearlyRevenuCalResult)));
                 }
             }
@@ -236,24 +258,30 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Long yearlyRentRevenu = 0L;
+                Long yearlyInterest = 0L;
+                if (yearly_rent_revenu_edit.getText().toString().length() != 0)
+                    yearlyRentRevenu = Long.parseLong(yearly_rent_revenu_edit.getText().toString().replaceAll(",", ""));
+                if (yearly_interest_edit.getText().toString().length() != 0)
+                    yearlyInterest = Long.parseLong(yearly_interest_edit.getText().toString().replaceAll(",", ""));
 
-                    Long yearlyRentRevenu = Long.parseLong(yearly_rent_revenu_edit.getText().toString().replaceAll(",", ""));
-                    Long yearlyInterest = Long.parseLong(yearly_interest_edit.getText().toString().replaceAll(",", ""));
-                    Long yearlyPureRevenuCalResult = yearlyRentRevenu - yearlyInterest;
-
-                    yearly_pure_revenu_edit.setText(df.format(yearlyPureRevenuCalResult));
+                Long yearlyPureRevenuCalResult = yearlyRentRevenu - yearlyInterest;
+                yearly_pure_revenu_edit.setText(df.format(yearlyPureRevenuCalResult));
             }
         });
         yearly_interest_edit.addTextChangedListener(new TextWatcher(){
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Long yearlyRentRevenu = 0L;
+                Long yearlyInterest = 0L;
+                if (yearly_rent_revenu_edit.getText().toString().length() != 0)
+                    yearlyRentRevenu = Long.parseLong(yearly_rent_revenu_edit.getText().toString().replaceAll(",", ""));
+                if (yearly_interest_edit.getText().toString().length() != 0)
+                    yearlyInterest = Long.parseLong(yearly_interest_edit.getText().toString().replaceAll(",", ""));
 
-                Long yearlyRentRevenu = Long.parseLong(yearly_rent_revenu_edit.getText().toString().replaceAll(",", ""));
-                Long yearlyInterest = Long.parseLong(yearly_interest_edit.getText().toString().replaceAll(",", ""));
                 Long yearlyPureRevenuCalResult = yearlyRentRevenu - yearlyInterest;
                 Long monthlyInterest = yearlyInterest / 12;
-
                 monthly_interest_edit.setText(df.format(monthlyInterest));
                 yearly_pure_revenu_edit.setText(df.format(yearlyPureRevenuCalResult));
             }
@@ -263,17 +291,18 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                Float yearlyPureRevenu = Float.parseFloat(yearly_pure_revenu_edit.getText().toString().replaceAll(",", ""));
-                Long monthlyPureRevenuCalResult = (long)Math.round(yearlyPureRevenu)/12;
+                Float yearlyPureRevenu = 0F;
+                if (yearly_pure_revenu_edit.getText().toString().length() != 0)
+                    yearlyPureRevenu = Float.parseFloat(yearly_pure_revenu_edit.getText().toString().replaceAll(",", ""));
 
+                Long monthlyPureRevenuCalResult = (long)Math.round(yearlyPureRevenu)/12;
                 monthly_pure_revenu_edit.setText(df.format(monthlyPureRevenuCalResult)); // 월 순수익
 
-                Float realInvestment = Float.parseFloat(real_investment_edit.getText().toString().replaceAll(",", ""));
+                Float realInvestment = 0F;
+                if (real_investment_edit.getText().toString().length() != 0)
+                    realInvestment = Float.parseFloat(real_investment_edit.getText().toString().replaceAll(",", ""));
                 Float rentRevenuRate = (yearlyPureRevenu / realInvestment) * 100;
-                Log.i(TAG, "realInvenstMent : "+ realInvestment);
-                Log.i(TAG, "yearlyPureRevenu : " + yearlyPureRevenu);
-                Log.i(TAG, "rentRevenuRate : " + rentRevenuRate);
-                rent_rate_edit.setText(rentRevenuRate + "");
+                rent_rate_edit.setText(String.format("%.2f", rentRevenuRate));
             }
         });
         real_investment_edit.addTextChangedListener(new TextWatcher(){
@@ -281,11 +310,14 @@ public class MainActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                Float yearlyPureRevenu = Float.parseFloat(yearly_pure_revenu_edit.getText().toString().replaceAll(",", ""));
-                Float realInvestment = Float.parseFloat(real_investment_edit.getText().toString().replaceAll(",", ""));
+                Float yearlyPureRevenu = 0F;
+                Float realInvestment = 0F;
+                if (yearly_pure_revenu_edit.getText().toString().length() != 0)
+                    yearlyPureRevenu = Float.parseFloat(yearly_pure_revenu_edit.getText().toString().replaceAll(",", ""));
+                if (real_investment_edit.getText().toString().length() != 0)
+                    realInvestment = Float.parseFloat(real_investment_edit.getText().toString().replaceAll(",", ""));
                 Float rentRevenuRate = (yearlyPureRevenu / realInvestment) * 100;
-
-                rent_rate_edit.setText(rentRevenuRate + "");
+                rent_rate_edit.setText(String.format("%.2f", rentRevenuRate));
             }
         });
 

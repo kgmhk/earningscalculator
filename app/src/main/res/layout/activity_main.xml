@@ -58,7 +58,6 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:text="@string/rent_deposit"
-                        android:textSize="10sp"
                         android:id="@+id/rent_deposit_text"
                         android:layout_width="100dp" />
 
@@ -69,15 +68,13 @@
                         android:ems="10"
                         android:id="@+id/rent_deposit_edit"
                         android:layout_weight="1"
-                        android:text="0"
-                        android:textSize="10sp"
-                        android:gravity="right|center_vertical" />
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
 
                     <TextView
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:textSize="10sp"
                         android:id="@+id/textView2"
                         android:gravity="center" />
 
@@ -92,7 +89,6 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:text="@string/monthly_rent"
-                        android:textSize="10sp"
                         android:id="@+id/monthly_rent_text"
                         android:layout_width="100dp" />
 
@@ -100,19 +96,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:textSize="10sp"
                         android:id="@+id/monthly_rent_edit"
                         android:layout_weight="1"
-                        android:text="0"
                         android:gravity="right|center_vertical"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:hint="0" />
 
                     <TextView
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView"
-                        android:textSize="10sp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -197,7 +191,6 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:text="@string/buy_total_price"
-                        android:textSize="10sp"
                         android:id="@+id/buy_total_price_text"
                         android:layout_width="100dp" />
 
@@ -206,15 +199,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:ems="10"
-                        android:textSize="10sp"
                         android:id="@+id/buy_total_price_edit"
                         android:layout_weight="1"
-                        android:text="0"
-                        android:gravity="right|center_vertical" />
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
 
                     <TextView
                         android:text="@string/currency"
-                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView4"
@@ -231,7 +222,6 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:text="@string/loan_price"
-                        android:textSize="10sp"
                         android:id="@+id/loan_price_text"
                         android:layout_width="100dp" />
 
@@ -239,16 +229,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textSize="10sp"
                         android:ems="10"
                         android:id="@+id/loan_price_edit"
                         android:layout_weight="1"
-                        android:text="0"
-                        android:gravity="right|center_vertical" />
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
 
                     <TextView
                         android:text="@string/currency"
-                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView5"
@@ -265,7 +253,6 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:text="@string/loan_rate"
-                        android:textSize="10sp"
                         android:id="@+id/loan_rate_text"
                         android:layout_width="100dp" />
 
@@ -274,15 +261,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberSigned|numberDecimal"
                         android:ems="10"
-                        android:textSize="10sp"
                         android:id="@+id/loan_rate_edit"
                         android:layout_weight="1"
-                        android:text="0"
-                        android:gravity="right|center_vertical" />
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
 
                     <TextView
                         android:text="@string/percent"
-                        android:textSize="10sp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/textView6"
