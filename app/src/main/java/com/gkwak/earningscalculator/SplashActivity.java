@@ -30,23 +30,11 @@ public class SplashActivity extends Activity {
         hd.postDelayed(new splashhandler() , 3000); // 3초 후에 hd Handler 실행
     }
 
-    public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnectedOrConnecting();
-    }
-
     private class splashhandler implements Runnable{
         public void run() {
-            if (!isOnline()) {
-                SplashActivity.this.finish();
-                System.exit(0);
-            } else {
                 Intent intent = new Intent(getApplication(), MainActivity.class);
                 startActivity(intent); // 로딩이 끝난후 이동할 Activity
                 SplashActivity.this.finish(); // 로딩페이지 Activity Stack에서 제거
-            }
         }
     }
 }

@@ -239,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!s.toString().equals(loan_rate_result[0])) {
                     if (s.length() == 0) return;
+                    if (loan_rate_edit.getText().toString().length() == 1 && s.toString().equals(".")) {
+                        loan_rate_edit.setText("");
+                        return;
+                    }
 
                     Float loanPrice = 0F;
                     Float loanRate = 0F;
