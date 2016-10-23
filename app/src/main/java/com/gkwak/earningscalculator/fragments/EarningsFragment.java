@@ -1,34 +1,30 @@
-package com.gkwak.earningscalculator;
+package com.gkwak.earningscalculator.fragments;
 
+import com.gkwak.earningscalculator.R;
 import com.gkwak.earningscalculator.interfaces.PopupEnum;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
+public class EarningsFragment extends Fragment {
     // Remove the below line after defining your own ad unit ID.
     private static final String TOAST_TEXT = "Test ads are being shown. "
             + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
@@ -42,39 +38,38 @@ public class MainActivity extends AppCompatActivity {
             monthly_pure_revenu_edit, monthly_interest_edit;
     private ImageButton expect_market_price_help_button, cal_rent_revenu_help_button, cal_rent_revenu_result_help_button;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+//        int resId = R.layout.fragment_earnings;
 
-        // Load an ad into the AdMob banner view.
-        AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        adView.loadAd(adRequest);
+        View rootView = inflater.inflate(R.layout.fragment_earnings, container, false);
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.fragment_earnings);
 
         // 1st Layout
-        rent_deposit_edit = (EditText) findViewById(R.id.rent_deposit_edit);
-        monthly_rent_edit = (EditText) findViewById(R.id.monthly_rent_edit);
-        market_price_edit = (TextView) findViewById(R.id.market_price_edit);
+        rent_deposit_edit = (EditText) rootView.findViewById(R.id.rent_deposit_edit);
+        monthly_rent_edit = (EditText) rootView.findViewById(R.id.monthly_rent_edit);
+        market_price_edit = (TextView) rootView.findViewById(R.id.market_price_edit);
 
         // 2st Layout
-        buy_total_price_edit = (EditText) findViewById(R.id.buy_total_price_edit);
-        loan_price_edit = (EditText) findViewById(R.id.loan_price_edit);
-        loan_rate_edit = (EditText) findViewById(R.id.loan_rate_edit);
+        buy_total_price_edit = (EditText) rootView.findViewById(R.id.buy_total_price_edit);
+        loan_price_edit = (EditText) rootView.findViewById(R.id.loan_price_edit);
+        loan_rate_edit = (EditText) rootView.findViewById(R.id.loan_rate_edit);
 
         // 3st Layout
-        rent_rate_edit = (TextView) findViewById(R.id.rent_rate_edit);
-        yearly_rent_revenu_edit = (TextView) findViewById(R.id.yearly_rent_revenu_edit);
-        yearly_interest_edit = (TextView) findViewById(R.id.yearly_interest_edit);
-        real_investment_edit = (TextView) findViewById(R.id.real_investment_edit);
-        yearly_pure_revenu_edit = (TextView) findViewById(R.id.yearly_pure_revenu_edit);
-        monthly_pure_revenu_edit = (TextView) findViewById(R.id.monthly_pure_revenu_edit);
-        monthly_interest_edit = (TextView) findViewById(R.id.monthly_interest_edit);
+        rent_rate_edit = (TextView) rootView.findViewById(R.id.rent_rate_edit);
+        yearly_rent_revenu_edit = (TextView) rootView.findViewById(R.id.yearly_rent_revenu_edit);
+        yearly_interest_edit = (TextView) rootView.findViewById(R.id.yearly_interest_edit);
+        real_investment_edit = (TextView) rootView.findViewById(R.id.real_investment_edit);
+        yearly_pure_revenu_edit = (TextView) rootView.findViewById(R.id.yearly_pure_revenu_edit);
+        monthly_pure_revenu_edit = (TextView) rootView.findViewById(R.id.monthly_pure_revenu_edit);
+        monthly_interest_edit = (TextView) rootView.findViewById(R.id.monthly_interest_edit);
 
-        expect_market_price_help_button = (ImageButton) findViewById(R.id.expect_market_price_help_button);
-        cal_rent_revenu_help_button = (ImageButton) findViewById(R.id.cal_rent_revenu_help_button);
-        cal_rent_revenu_result_help_button = (ImageButton) findViewById(R.id.cal_rent_revenu_result_help_button);
+        expect_market_price_help_button = (ImageButton) rootView.findViewById(R.id.expect_market_price_help_button);
+        cal_rent_revenu_help_button = (ImageButton) rootView.findViewById(R.id.cal_rent_revenu_help_button);
+        cal_rent_revenu_result_help_button = (ImageButton) rootView.findViewById(R.id.cal_rent_revenu_result_help_button);
 
         // 세자리로 끊어서 쉼표 보여주고, 소숫점 셋째짜리까지 보여준다.
         final DecimalFormat df = new DecimalFormat("###,###.####");
@@ -324,18 +319,18 @@ public class MainActivity extends AppCompatActivity {
                 rent_rate_edit.setText(String.format("%.2f", rentRevenuRate));
             }
         });
-
+        return rootView;
     }
 
     private void helpPopupWindow(PopupEnum popupEnum) {
         final View layout;
         try {
             //  LayoutInflater 객체와 시킴
-            final LayoutInflater inflater = (LayoutInflater) MainActivity.this
+            final LayoutInflater inflater = (LayoutInflater) EarningsFragment.this.getActivity()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             layout = inflater.inflate(R.layout.help_popup,
-                    (ViewGroup) findViewById(R.id.help_popup_element));
+                    (ViewGroup) getActivity().findViewById(R.id.help_popup_element));
 
             final LinearLayout top = (LinearLayout) layout.findViewById(R.id.help_popup_linear);
             TextView title = (TextView) layout.findViewById(R.id.help_popup_title);
@@ -346,8 +341,8 @@ public class MainActivity extends AppCompatActivity {
                     RelativeLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
-            TextView tv1 = new TextView(this);
-            TextView tv2 = new TextView(this);
+            TextView tv1 = new TextView(this.getActivity());
+            TextView tv2 = new TextView(this.getActivity());
 
             switch (popupEnum) {
                 case EXPECT_MARKET_PRICE:
@@ -385,27 +380,4 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }

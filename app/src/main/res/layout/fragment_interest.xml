@@ -1,0 +1,411 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gkwak.earningscalculator.fragments.EarningsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/cal_loan_interest_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_loan_interest_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:id="@+id/cal_loan_interest_help_button"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_price_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_price"
+                        android:id="@+id/loan_price_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/loan_price_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView31"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_rate_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_rate"
+                        android:id="@+id/loan_rate_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned|numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/loan_rate_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView6"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_duration_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_duration"
+                        android:id="@+id/loan_duration_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/loan_duration_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_method_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_method"
+                        android:id="@+id/loan_method_text"
+                        android:layout_width="100dp" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loan_method_spinner"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/cal_loan_interest_result_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_loan_interest_result_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:id="@+id/cal_loan_interest_result_help_button"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_price_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_price"
+                        android:id="@+id/loan_price_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loan_price_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"/>
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView5"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_rate_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_rate"
+                        android:id="@+id/loan_rate_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loan_rate_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView32"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_duration_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_duration"
+                        android:id="@+id/loan_duration_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loan_duration_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView33"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/loan_method_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/loan_method"
+                        android:id="@+id/loan_method_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loan_method_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/monthly_interest_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/monthly_interest"
+                        android:id="@+id/monthly_interest_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/monthly_interest_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView35"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/repayment_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/repayment"
+                        android:id="@+id/repayment_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/repayment_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView36"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/total_interest_result_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_interest"
+                        android:id="@+id/total_interest_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/total_interest_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView37"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

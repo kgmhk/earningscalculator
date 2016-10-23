@@ -2,8 +2,17 @@
     <string name="app_name">수익률 계산기</string>
 
     <string name="action_settings">Settings</string>
+    <string name="fragment_1">임대수익률</string>
+    <string name="fragment_2">대출이자</string>
 
     <string name="hello_world">Hello world!</string>
+
+    <string name="cal_loan_interest_title">대출이자 계산</string>
+    <string name="loan_method">상환방식</string>
+    <string name="repayment">회차별 상환금</string>
+    <string name="total_interest">총 이자</string>
+
+    <string name="cal_loan_interest_result_title">대출이자 계산 결과</string>
 
     <string name="rent_deposit">임대보증금</string>
     <string name="monthly_rent">월세</string>
@@ -15,7 +24,8 @@
     <string name="cal_rent_revenu_title">임대 수익률 계산</string>
     <string name="buy_total_price">분양가</string>
     <string name="loan_price">대출금</string>
-    <string name="loan_rate">대출이율</string>
+    <string name="loan_rate">대출금리</string>
+    <string name="loan_duration">상환기간</string>
     <string name="cal_rent_revenu_detail_1">대출금과 대출이율을 입력하세요.</string>
     <string name="cal_rent_revenu_detail_2">대출금이 없을 경우 대출금과 이율은 0으로 입력하세요.</string>
 
@@ -30,6 +40,7 @@
     <string name="monthly_pure_revenu">월순수익</string>
     <string name="currency">원</string>
     <string name="percent">%</string>
+    <string name="duration">개월</string>
     <string name="cal_rent_revenu_result_detail_1">입력한 수치를 바탕으로 임대수익률 결과가 출력됩니다.</string>
     <string name="cal_rent_revenu_result_detail_2">임대수익률을 비룟하여 다양한 정보를 확인할 수 있습니다.</string>
 
