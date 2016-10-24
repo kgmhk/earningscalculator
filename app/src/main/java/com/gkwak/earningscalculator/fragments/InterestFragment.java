@@ -14,7 +14,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,7 @@ public class InterestFragment extends Fragment {
     private Spinner  loan_method_spinner;
     private TextView loan_price_result_edit, loan_rate_result_edit, loan_duration_result_edit,
         loan_method_result_edit, monthly_interest_result_edit, repayment_result_edit, total_interest_result_edit;
+    private LinearLayout payment_monthly_loan_interest_result_layout;
 
     @Nullable
     @Override
@@ -49,6 +53,8 @@ public class InterestFragment extends Fragment {
         loan_price_edit = (EditText) rootView.findViewById(R.id.loan_price_edit);
         loan_rate_edit = (EditText) rootView.findViewById(R.id.loan_rate_edit);
         loan_duration_edit = (EditText) rootView.findViewById(R.id.loan_duration_edit);
+
+        payment_monthly_loan_interest_result_layout = (LinearLayout) rootView.findViewById(R.id.payment_monthly_loan_interest_result_layout);
 
         // Spinner
         loan_method_spinner = (Spinner) rootView.findViewById(R.id.loan_method_spinner);
@@ -169,6 +175,8 @@ public class InterestFragment extends Fragment {
         monthly_interest_result_edit.setText("");
         repayment_result_edit.setText("");
         total_interest_result_edit.setText("");
+        if (payment_monthly_loan_interest_result_layout.getChildCount() > 0)
+            payment_monthly_loan_interest_result_layout.removeAllViews();
     }
 
     private void calFirstMethod(Long loanPrice, Float loanRate, Long loanDuration, String selItem) {
@@ -202,11 +210,70 @@ public class InterestFragment extends Fragment {
         loan_method_result_edit.setText(selItem);
 
 
-        Long totalInterest  = (long)((float)loanPrice * (loanRate / 100) * (float)(loanDuration/12));
+        Long totalInterest  = (long)((((float)loanPrice * (loanRate / 100)) / 12) * (float)(loanDuration));
         Long repayment = totalInterest / loanDuration;
         Long monthlyInterest = totalInterest / loanDuration;
         monthly_interest_result_edit.setText(monthlyInterest.toString());
         repayment_result_edit.setText(repayment.toString());
         total_interest_result_edit.setText(totalInterest.toString());
+
+        /* Find Tablelayout defined in main.xml */
+        TableLayout tl = new TableLayout(this.getActivity());
+        tl.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+        for (int i=0; i<=loanDuration; i++) {
+            TableRow tr = new TableRow(this.getActivity());
+            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+
+            if (i == 0) {
+                TextView a = new TextView(this.getActivity());
+                a.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+                a.setText("No" );
+                tr.addView(a);
+
+                TextView b = new TextView(this.getActivity());
+                b.setText("상환금" );
+                b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+                tr.addView(b);
+
+                TextView c = new TextView(this.getActivity());
+                c.setText("이자" );
+                c.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+                tr.addView(c);
+
+                TextView d = new TextView(this.getActivity());
+                d.setText("잔금" );
+                d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+                tr.addView(d);
+            } else {
+
+                TextView a = new TextView(this.getActivity());
+                a.setText(i + "");
+                a.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+
+                tr.addView(a);
+
+                TextView b = new TextView(this.getActivity());
+                b.setText(monthlyInterest.toString());
+                b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+
+                tr.addView(b);
+
+                TextView c = new TextView(this.getActivity());
+                c.setText(monthlyInterest.toString());
+                c.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+
+                tr.addView(c);
+
+                TextView d = new TextView(this.getActivity());
+                d.setText(loanPrice.toString());
+                d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+
+                tr.addView(d);
+            }
+            tl.addView(tr);
+        }
+
+
+        payment_monthly_loan_interest_result_layout.addView(tl);
     }
 }

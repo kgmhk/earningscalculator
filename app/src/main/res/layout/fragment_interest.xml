@@ -182,7 +182,7 @@
                     <TextView
                         android:text="@string/cal_loan_interest_result_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:id="@+id/cal_loan_interest_result_title"
                         android:textColor="@color/colorBlack"
                         android:textSize="20dp"
@@ -403,6 +403,43 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/cal_loan_interest_result_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/payment_monthly_loan_interest_result_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:id="@+id/payment_monthly_loan_interest_result_help_button"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/payment_monthly_loan_interest_result_layout">
+
+                </LinearLayout>
 
             </LinearLayout>
 
