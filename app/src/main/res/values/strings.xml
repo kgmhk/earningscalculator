@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">수익률 계산기</string>
+    <string name="app_name">부동산 계산기</string>
 
     <string name="action_settings">Settings</string>
     <string name="fragment_1">임대수익률</string>

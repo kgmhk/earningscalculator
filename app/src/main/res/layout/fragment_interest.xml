@@ -295,7 +295,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/loan_method_layout"
+                    android:id="@+id/loan_method_result_layout"
                     android:layout_marginBottom="5dp">
 
                     <TextView
