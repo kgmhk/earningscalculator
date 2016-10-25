@@ -8,9 +8,13 @@
     <string name="hello_world">Hello world!</string>
 
     <string name="cal_loan_interest_title">대출이자 계산</string>
+    <string name="input_loan_info">대출 정보 입력</string>
+    <string name="cal_loan_result_title">대출 이자 계산 결과</string>
+    <string name="cal_monthly_payment_title">월별 상환금</string>
     <string name="loan_method">상환방식</string>
     <string name="repayment">회차별 상환금</string>
     <string name="total_interest">총 이자</string>
+    <string name="original_payment">납입원금</string>
 
     <string name="cal_loan_interest_result_title">대출이자 계산 결과</string>
 
@@ -43,6 +47,12 @@
     <string name="duration">개월</string>
     <string name="cal_rent_revenu_result_detail_1">입력한 수치를 바탕으로 임대수익률 결과가 출력됩니다.</string>
     <string name="cal_rent_revenu_result_detail_2">임대수익률을 비룟하여 다양한 정보를 확인할 수 있습니다.</string>
+
+    <string name="row_title_no">No</string>
+    <string name="row_title_repayment">상환금</string>
+    <string name="row_title_interest">이자</string>
+    <string name="row_title_left_money">잔금</string>
+    <string name="row_title_original_payment">납입원금</string>
 
     <string name="close_btn">닫기</string>
 

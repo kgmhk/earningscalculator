@@ -30,7 +30,7 @@
                     android:layout_marginTop="5dp">
 
                     <TextView
-                        android:text="@string/cal_loan_interest_title"
+                        android:text="@string/input_loan_info"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/cal_loan_interest_title"
@@ -205,7 +205,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/loan_price_result_layout">
+                    android:id="@+id/loan_price_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -234,7 +235,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/loan_rate_result_layout">
+                    android:id="@+id/loan_rate_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -263,7 +265,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/loan_duration_result_layout">
+                    android:id="@+id/loan_duration_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -292,7 +295,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/loan_method_layout">
+                    android:id="@+id/loan_method_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -314,7 +318,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/monthly_interest_result_layout">
+                    android:id="@+id/monthly_interest_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -343,7 +348,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/repayment_result_layout">
+                    android:id="@+id/repayment_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -372,7 +378,38 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/total_interest_result_layout">
+                    android:id="@+id/original_payment_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/original_payment"
+                        android:id="@+id/original_payment_result_text"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/original_payment_result_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView37"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/total_interest_result_layout"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -412,7 +449,7 @@
                     android:layout_marginTop="5dp">
 
                     <TextView
-                        android:text="@string/cal_loan_interest_result_title"
+                        android:text="@string/cal_monthly_payment_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/payment_monthly_loan_interest_result_title"
