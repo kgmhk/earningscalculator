@@ -429,7 +429,7 @@
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:id="@+id/textView37"
+                        android:id="@+id/textView38"
                         android:gravity="center" />
 
                 </LinearLayout>
