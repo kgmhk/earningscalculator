@@ -55,6 +55,7 @@
     <string name="row_title_original_payment">납입원금</string>
 
     <string name="close_btn">닫기</string>
+    <string name="loan_duration_warning_toast">상환기간을 1년 이상 입력해주세요.</string>
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.

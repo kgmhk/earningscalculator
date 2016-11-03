@@ -134,6 +134,12 @@ public class InterestFragment extends Fragment {
                 loan_method_spinner.setSelection(0);
                 initMethod();
                 return;
+            } else if (Integer.parseInt(loan_duration_edit.getText().toString()) < 12) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.loan_duration_warning_toast), Toast.LENGTH_LONG).show();
+                loan_duration_edit.requestFocus();
+                loan_method_spinner.setSelection(0);
+                initMethod();
+                return;
             }
 
             Long loanPrice = 0L;
