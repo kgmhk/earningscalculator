@@ -270,7 +270,7 @@ public class InterestFragment extends Fragment {
                 d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1));
                 tr.addView(d);
             } else if (i == loanDuration) {
-                calInterestResult = ((long)((float)(loanPrice - (calOriginalResult * (i - 1))) * (loanRate / 100)) / loanDuration);
+                calInterestResult = ((long)((float)(loanPrice - (calOriginalResult * (i - 1))) * (loanRate / 100)) / 12);
                 calInterestTotalResult += calInterestResult;
                 TextView a = new TextView(this.getActivity());
                 a.setText(i + "");
@@ -308,7 +308,7 @@ public class InterestFragment extends Fragment {
                 tr.addView(e);
             } else {
 
-                calInterestResult = ((long)((float)(loanPrice - (calOriginalResult * (i - 1))) * (loanRate / 100)) / loanDuration);
+                calInterestResult = ((long)((float)(loanPrice - (calOriginalResult * (i - 1))) * ((loanRate / 100 ) / 12)));
                 calInterestTotalResult += calInterestResult;
                 TextView a = new TextView(this.getActivity());
                 a.setText(i + "");
@@ -438,7 +438,7 @@ public class InterestFragment extends Fragment {
                 tr.addView(d);
             } else if (i == loanDuration) {
                 // 월 이자
-                Long monthInterest = (long)((float)(calLoanPrice / loanDuration) * (loanRate / 100));
+                Long monthInterest = (long)((float)(calLoanPrice / 12) * (loanRate / 100));
                 // 납입 원금
                 Long tm = Math.round(temp3) -  monthInterest;
                 Log.i(TAG, "temp 3: " + temp3);
@@ -482,7 +482,7 @@ public class InterestFragment extends Fragment {
                 tr.addView(e);
             } else {
                 // 월 이자
-                Long monthInterest = (long)((float)(calLoanPrice / loanDuration) * (loanRate / 100));
+                Long monthInterest = (long)((float)(calLoanPrice / 12) * (loanRate / 100));
                 // 납입 원금
                 Long tm = Math.round(temp3) -  monthInterest;
                 Log.i(TAG, "temp 3: " + temp3);

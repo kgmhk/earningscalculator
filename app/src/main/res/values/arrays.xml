@@ -2,8 +2,8 @@
 <resources>
     <string-array name="loan_method">
         <item>선택</item>
-        <item>원리금균등상환</item>
         <item>원금균등상환</item>
+        <item>원리금균등상환</item>
         <item>원금만기일시상환</item>
     </string-array>
 </resources>
