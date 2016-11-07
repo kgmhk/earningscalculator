@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gkwak.earningscalculator.R;
 import com.gkwak.earningscalculator.adapters.MyAdapter;
+import com.gkwak.earningscalculator.fragments.CommissionFragment;
 import com.gkwak.earningscalculator.fragments.EarningsFragment;
 import com.gkwak.earningscalculator.fragments.InterestFragment;
 import com.google.android.gms.ads.AdRequest;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         adapter.addFragment(new EarningsFragment(), getResources().getString(R.string.fragment_1));
         adapter.addFragment(new InterestFragment(), getResources().getString(R.string.fragment_2));
-//        adapter.addFragment(new MyFragment(), "Category 2");
+        adapter.addFragment(new CommissionFragment(), getResources().getString(R.string.fragment_3));
 //        adapter.addFragment(new MyFragment(), "Category 3");
 //        adapter.addFragment(new MyFragment(), "Category 4");
 //        adapter.addFragment(new MyFragment(), "Category 5");

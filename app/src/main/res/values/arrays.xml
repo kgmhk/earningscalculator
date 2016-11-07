@@ -6,4 +6,10 @@
         <item>원리금균등상환</item>
         <item>원금만기일시상환</item>
     </string-array>
+
+    <string-array name="commission_method">
+        <item>매매 / 교환</item>
+        <item>전세 임대차</item>
+        <item>월세 임대차</item>
+    </string-array>
 </resources>

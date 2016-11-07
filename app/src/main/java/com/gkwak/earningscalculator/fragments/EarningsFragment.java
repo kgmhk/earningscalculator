@@ -28,7 +28,7 @@ public class EarningsFragment extends Fragment {
     // Remove the below line after defining your own ad unit ID.
     private static final String TOAST_TEXT = "Test ads are being shown. "
             + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
-    private static final String TAG = "MAIN_ACTIVITY";
+    private static final String TAG = "EARNINGS_FRAGMENT";
 
     private PopupWindow pwindo;
     private EditText monthly_rent_edit, rent_deposit_edit, buy_total_price_edit,
