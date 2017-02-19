@@ -1,0 +1,625 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gkwak.earningscalculator.fragments.SquareMeterFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/square_meter_cal_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_meter_cal_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_meter_text"
+                        android:id="@+id/square_meter_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:maxLength="20"
+                        android:id="@+id/square_meter_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/square_meter_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_meter_symbol_text"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_meter_to_pyeong_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/pyeong_text"
+                        android:id="@+id/square_meter_to_pyeong_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_meter_to_pyeong_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:text="@string/pyeong_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sqaure_meter_to_pyeong_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_meter_to_square_foot_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_foot_text"
+                        android:id="@+id/square_meter_to_square_foot_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_meter_to_square_foot_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_foot_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sqaure_meter_to_square_foot_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_meter_to_square_yard_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_yard_text"
+                        android:id="@+id/square_meter_to_square_yard_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_meter_to_square_yard_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_yard_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sqaure_meter_to_square_yard_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/pyeong_to_square_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/pyeong_to_square_title" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pyeong_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/pyeong_text"
+                        android:id="@+id/pyeong_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:maxLength="20"
+                        android:id="@+id/pyeong_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/pyeong_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/pyeong_symbol_text"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pyeong_to_square_meter_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_meter_text"
+                        android:id="@+id/pyeong_to_square_meter_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pyeong_to_square_meter_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_meter_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/pyeong_to_sqaure_meter_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pyeong_to_square_foot_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_foot_text"
+                        android:id="@+id/pyeong_to_square_foot_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pyeong_to_square_foot_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_foot_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/pyeong_to_square_foot_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pyeong_to_square_yard_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_yard_text"
+                        android:id="@+id/pyeong_to_square_yard_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pyeong_to_square_yard_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_yard_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/pyeong_to_square_yard_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/square_foot_cal_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/foot_to_square_title" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/foot_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_foot_text"
+                        android:id="@+id/foot_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/foot_edit"
+                        android:maxLength="20"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/square_foot_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/foot_symbol_text"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_foot_to_pyeong_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/pyeong_text"
+                        android:id="@+id/square_foot_to_pyeong_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_foot_to_pyeong_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/pyeong_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_foot_to_pyeong_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_foot_to_square_meter_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_meter_text"
+                        android:id="@+id/square_foot_to_square_meter_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_foot_to_square_meter_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_meter_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_foot_to_square_meter_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_foot_to_square_yard_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_yard_text"
+                        android:id="@+id/square_foot_to_square_yard_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_foot_to_square_yard_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_yard_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_foot_to_square_yard_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/square_yard_cal_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/yard_to_square_title" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/yard_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_foot_text"
+                        android:id="@+id/yard_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/yard_edit"
+                        android:maxLength="20"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/square_yard_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/yard_symbol_text"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_yard_to_pyeong_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/pyeong_text"
+                        android:id="@+id/square_yard_to_pyeong_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_yard_to_pyeong_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/pyeong_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_yard_to_pyeong_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_yard_to_square_meter_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_meter_text"
+                        android:id="@+id/square_yard_to_square_meter_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_yard_to_square_meter_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_meter_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_yard_to_square_meter_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/square_yard_to_square_foot_result_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_foot_text"
+                        android:id="@+id/square_yard_to_square_foot_result_title"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/square_yard_to_square_foot_result_text"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/square_foot_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/square_yard_to_square_foot_symbol_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</RelativeLayout>

@@ -5,6 +5,7 @@
     <string name="fragment_1">임대수익률</string>
     <string name="fragment_2">대출이자</string>
     <string name="fragment_3">복비계산</string>
+    <string name="fragment_4">평형 계산</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -70,6 +71,20 @@
     <string name="close_btn">닫기</string>
     <string name="loan_duration_warning_toast">상환기간을 1년 이상 입력해주세요.</string>
     <string name="dealing_price_warning_toast">거래금액을 입력해주세요.</string>
+
+    <string name="square_meter_cal_title">평방(제곱)미터로 계산</string>
+    <string name="pyeong_to_square_title">평수로 계산</string>
+    <string name="square_foot_cal_title">평방(제곱)피트로 계산</string>
+    <string name="square_yard_cal_title">평방(제곱)야드로 계산</string>
+    <string name="square_meter_text">평방(제곱)미터</string>
+    <string name="square_meter_symbol">m\u00B2</string>
+    <string name="pyeong_text">평수</string>
+    <string name="pyeong_symbol">평</string>
+    <string name="square_foot_text">평방(제곱)피트</string>
+    <string name="square_foot_symbol">ft\u00B2</string>
+    <string name="square_yard_text">평방(제곱)야드</string>
+    <string name="square_yard_symbol">yd\u00B2</string>
+
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.
