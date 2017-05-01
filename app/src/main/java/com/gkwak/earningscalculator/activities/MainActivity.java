@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gkwak.earningscalculator.R;
 import com.gkwak.earningscalculator.adapters.MyAdapter;
+import com.gkwak.earningscalculator.fragments.AcquisitionTaxFragment;
 import com.gkwak.earningscalculator.fragments.CommissionFragment;
 import com.gkwak.earningscalculator.fragments.EarningsFragment;
 import com.gkwak.earningscalculator.fragments.InterestFragment;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new InterestFragment(), getResources().getString(R.string.fragment_2));
         adapter.addFragment(new CommissionFragment(), getResources().getString(R.string.fragment_3));
         adapter.addFragment(new SquareMeterFragment(), getResources().getString(R.string.fragment_4));
+        adapter.addFragment(new AcquisitionTaxFragment(), getResources().getString(R.string.fragment_5));
 //        adapter.addFragment(new MyFragment(), "Category 4");
 //        adapter.addFragment(new MyFragment(), "Category 5");
 //        adapter.addFragment(new MyFragment(), "Category 6");

@@ -12,4 +12,16 @@
         <item>전세 임대차</item>
         <item>월세 임대차</item>
     </string-array>
+
+    <string-array name="square_method">
+        <item>m\u00B2</item>
+        <item>평</item>
+    </string-array>
+
+    <string-array name="acquisition_type">
+        <item>주택</item>
+        <item>주택 외 매매(토지, 건물 등)</item>
+        <item>원시취득, 상속(농지 외)</item>
+        <item>무상취득(증여)</item>
+    </string-array>
 </resources>

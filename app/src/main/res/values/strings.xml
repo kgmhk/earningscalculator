@@ -4,8 +4,9 @@
     <string name="action_settings">Settings</string>
     <string name="fragment_1">임대수익률</string>
     <string name="fragment_2">대출이자</string>
-    <string name="fragment_3">복비계산</string>
+    <string name="fragment_3">중개 수수료(복비계산)</string>
     <string name="fragment_4">평형 계산</string>
+    <string name="fragment_5">취득세</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -54,7 +55,7 @@
     <string name="commission_deal_price">거래금액</string>
     <string name="commission_deposit_price">보증금</string>
     <string name="commission_method">거래방법</string>
-    <string name="commission_result_title">복비 계산 결과</string>
+    <string name="commission_result_title">중개 수수료 계산 결과</string>
     <string name="commission_monthly_rent_price">월세액</string>
     <string name="max_commission_price">최대 중개 보수</string>
     <string name="upper_limit_rate_title">상한요율</string>
@@ -85,6 +86,15 @@
     <string name="square_yard_text">평방(제곱)야드</string>
     <string name="square_yard_symbol">yd\u00B2</string>
 
+    <string name="input_acquisition_info">취득세 계산 정보 입력</string>
+    <string name="square_method">m\u00B2 / 평</string>
+    <string name="acquisition_type">구 분</string>
+    <string name="acquisition_deal_price_text">거래 금액</string>
+    <string name="acquisition_result_title">취득세 계산 결과</string>
+    <string name="cal_acquisition_result_text">취득세</string>
+    <string name="cal_acquisition_rate_text">취득세율</string>
+    <string name="acquisition_dealing_price_warning_toast">거래금액을 입력해주세요.</string>
+    <string name="acquisition_square_warning_toast">주택 크기를 입력하세요.</string>
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.

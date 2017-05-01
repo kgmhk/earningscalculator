@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gkwak.earningscalculator.fragments.EarningsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/input_commission_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/acquisition_info"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/acquisition_type_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/acquisition_type"
+                        android:id="@+id/acquisition_type_text"
+                        android:layout_width="100dp" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/acquisition_type_spinner"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/acquisition_square_method_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/square_method"
+                        android:id="@+id/acquisition_square_method_text"
+                        android:layout_width="100dp" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/acquisition_square_method_spinner"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/acquisition_square_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:id="@+id/acquisition_square_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/acquisition_square_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/acquisition_square_mark_text"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/acquisition_dealing_layout">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/acquisition_deal_price_text"
+                        android:id="@+id/acquisition_deal_price_text"
+                        android:layout_width="100dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/acquisition_deal_price_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/acquisition_deal_price_currency_text"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:text="@string/cal_commission_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cal_acquisition_btn"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:text="@string/acquisition_result_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/acquisition_result_title"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cal_acquisition_price_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/cal_acquisition_result_text"
+                        android:id="@+id/cal_acquisition_price_text"
+                        android:layout_width="100dp"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cal_acquisition_price_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_acquisition_price_currency_text"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cal_acquisition_rate_layout"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="@string/cal_acquisition_rate_text"
+                        android:id="@+id/cal_acquisition_rate_title"
+                        android:layout_width="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cal_acquisition_rate_edit"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:hint="0" />
+
+                    <TextView
+                        android:text="@string/percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/cal_acquisition_rate_currency_text"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
