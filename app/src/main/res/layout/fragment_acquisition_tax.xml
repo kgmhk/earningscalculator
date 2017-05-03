@@ -30,7 +30,7 @@
                     android:layout_marginTop="5dp">
 
                     <TextView
-                        android:text="@string/input_commission_info"
+                        android:text="@string/input_acquisition_info"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/acquisition_info"

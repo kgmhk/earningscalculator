@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gkwak.earningscalculator.R;
+import com.gkwak.earningscalculator.utils.Keyborad;
 
 import java.text.DecimalFormat;
 
@@ -96,22 +97,29 @@ public class AcquisitionTaxFragment extends Fragment {
 
         calAcquisitionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                double square;
+                Long price;
 
                 if (acquisitionPriceEdit.getText().length() == 0) {
                     Toast.makeText(getActivity(), getResources().getString(R.string.acquisition_dealing_price_warning_toast), Toast.LENGTH_LONG).show();
                     acquisitionPriceEdit.requestFocus();
+                    return;
                 }
 
-                if (acquisitionSquareEdit.getText().length() == 0) {
+                if (acquisitionSquareEdit.getText().length() == 0 && acquisitionTypePosition == 0) {
                     Toast.makeText(getActivity(), getResources().getString(R.string.acquisition_square_warning_toast), Toast.LENGTH_LONG).show();
                     acquisitionSquareEdit.requestFocus();
+                    return;
                 }
+                if (acquisitionTypePosition == 0) {
+                    square =  Double.parseDouble(acquisitionSquareEdit.getText().toString());
+                } else {
+                    square = 0;
+                }
+                price = Long.parseLong(acquisitionPriceEdit.getText().toString().replaceAll(",", ""));
 
-                double square;
-                Long price;
+                Keyborad.hideKeyboard(getContext(), acquisitionPriceEdit);
 
-                square =  Double.parseDouble(acquisitionSquareEdit.getText().toString());
-                price = Long.parseLong(acquisitionPriceEdit.getText().toString().replaceAll(",", ""));;
                 switch (squareMathodePosition) {
                     case 1:
                         calAcquisition(convertPyeongToMeter(square), price);
@@ -203,6 +211,8 @@ public class AcquisitionTaxFragment extends Fragment {
     private AdapterView.OnItemSelectedListener mOnAcquisitionTypeSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            resetEditText(acquisitionPriceEdit);
+            resetEditText(acquisitionSquareEdit);
 
             Log.i(TAG, "onItemSelected() entered!!");
             String selItem= (String) acquisitionTypeSpinner.getSelectedItem();
@@ -231,6 +241,7 @@ public class AcquisitionTaxFragment extends Fragment {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+            resetEditText(acquisitionSquareEdit);
             Log.i(TAG, "onItemSelected() entered!!");
             String selItem= (String) squareMethodSpinner.getSelectedItem();
             Log.i(TAG, "Spinner selected item = "+selItem);
@@ -256,4 +267,8 @@ public class AcquisitionTaxFragment extends Fragment {
             Log.i(TAG, "onNothingSelected() entered!!");
         }
     };
+
+    public void resetEditText(EditText editText) {
+        editText.setText("");
+    }
 }
