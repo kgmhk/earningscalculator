@@ -38,13 +38,24 @@
                         android:textColor="@color/colorBlack"
                         android:textSize="20sp" />
 
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        ads:srcCompat="@android:drawable/ic_menu_help"
+                        android:background="@drawable/help_btn_selector"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/acquisition_help_button" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/acquisition_type_layout">
+                    android:id="@+id/acquisition_type_layout"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:layout_height="wrap_content"
@@ -101,7 +112,8 @@
                         android:id="@+id/acquisition_square_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="10" />
 
                     <TextView
                         android:text="@string/currency"
@@ -132,7 +144,8 @@
                         android:id="@+id/acquisition_deal_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"

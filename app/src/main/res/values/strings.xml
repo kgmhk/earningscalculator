@@ -62,6 +62,9 @@
     <string name="upper_limit_price_title">상한액</string>
     <string name="cal_commission_result_title">거래금액</string>
     <string name="cal_commission_btn">계산</string>
+    <string name="commission_dealing_price_warning_toast">거래 금액을 입력해주세요.</string>
+    <string name="commission_deposit_price_warning_toast">보증금액을 입력해주세요.</string>
+    <string name="commission_monthly_price_warning_toast">월세액을 입력해주세요.</string>
 
     <string name="row_title_no">No</string>
     <string name="row_title_repayment">상환금</string>
@@ -95,6 +98,9 @@
     <string name="cal_acquisition_rate_text">취득세율</string>
     <string name="acquisition_dealing_price_warning_toast">거래금액을 입력해주세요.</string>
     <string name="acquisition_square_warning_toast">주택 크기를 입력하세요.</string>
+    <string name="acquisition_help_title">취득세 계산</string>
+    <string name="acquisition_help_detail1">취득세 계산은 부동산 취득세 요율에 따라 계산됩니다.</string>
+    <string name="acquisition_help_detail2">정확한 세율은 126 국세청을 이용해주세요.</string>
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.

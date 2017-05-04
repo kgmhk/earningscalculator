@@ -69,7 +69,8 @@
                         android:id="@+id/rent_deposit_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -100,7 +101,8 @@
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
                         android:inputType="number"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -202,7 +204,8 @@
                         android:id="@+id/buy_total_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -233,7 +236,8 @@
                         android:id="@+id/loan_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -264,7 +268,8 @@
                         android:id="@+id/loan_rate_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="10" />
 
                     <TextView
                         android:text="@string/percent"

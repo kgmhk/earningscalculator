@@ -81,7 +81,8 @@
                         android:id="@+id/deal_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -112,7 +113,8 @@
                         android:id="@+id/deposit_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"
@@ -143,7 +145,8 @@
                         android:id="@+id/commission_monthly_price_edit"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:hint="0" />
+                        android:hint="0"
+                        android:maxLength="16" />
 
                     <TextView
                         android:text="@string/currency"

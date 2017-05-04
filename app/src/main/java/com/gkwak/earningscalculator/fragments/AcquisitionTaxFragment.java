@@ -1,11 +1,13 @@
 package com.gkwak.earningscalculator.fragments;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +15,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gkwak.earningscalculator.R;
+import com.gkwak.earningscalculator.interfaces.PopupEnum;
 import com.gkwak.earningscalculator.utils.Keyborad;
+import com.gkwak.earningscalculator.utils.Text;
 
 import java.text.DecimalFormat;
 
@@ -32,6 +39,8 @@ public class AcquisitionTaxFragment extends Fragment {
     private Button calAcquisitionBtn;
     private EditText acquisitionSquareEdit, acquisitionPriceEdit;
     private LinearLayout acquisitionSquareLayout, acquisitionSquaredMethodLayout;
+    private ImageButton acquisitionHelpButton;
+    private PopupWindow pwindo;
     final DecimalFormat df = new DecimalFormat("###,###.####");
 
     @Nullable
@@ -49,6 +58,7 @@ public class AcquisitionTaxFragment extends Fragment {
         calAcquisitionBtn = (Button) rootView.findViewById(R.id.cal_acquisition_btn);
         acquisitionSquareEdit = (EditText) rootView.findViewById(R.id.acquisition_square_edit);
         acquisitionPriceEdit = (EditText) rootView.findViewById(R.id.acquisition_deal_price_edit);
+        acquisitionHelpButton = (ImageButton) rootView.findViewById(R.id.acquisition_help_button);
 
         acquisitionTypeSpinner = (Spinner) rootView.findViewById(R.id.acquisition_type_spinner);
         ArrayAdapter acquisitionTypeAdapter = ArrayAdapter.createFromResource(this.getActivity(),
@@ -74,6 +84,8 @@ public class AcquisitionTaxFragment extends Fragment {
 
                 if(!s.toString().equals(acquisitionPriceEditTempResult[0])){     // StackOverflow를 막기위해,
                     if (s.length() == 0) return;
+                    Text.resetTextView(calAcquisitionPriceText);
+                    Text.resetTextView(calAcquisitionRateText);
                     acquisitionPriceEditTempResult[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
                     acquisitionPriceEdit.setText(acquisitionPriceEditTempResult[0]);    // 결과 텍스트 셋팅.
                     acquisitionPriceEdit.setSelection(acquisitionPriceEditTempResult[0].length());     // 커서를 제일 끝으로 보냄.
@@ -85,13 +97,11 @@ public class AcquisitionTaxFragment extends Fragment {
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){
-//
-//                if(!s.toString().equals(acquisitionSquareEditTempResult[0])){     // StackOverflow를 막기위해,
-//                    if (s.length() == 0) return;
-//                    acquisitionSquareEditTempResult[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
-//                    acquisitionSquareEdit.setText(acquisitionSquareEditTempResult[0]);    // 결과 텍스트 셋팅.
-//                    acquisitionSquareEdit.setSelection(acquisitionSquareEditTempResult[0].length());     // 커서를 제일 끝으로 보냄.
-//                }
+                if(!s.toString().equals(acquisitionSquareEditTempResult[0])){     // StackOverflow를 막기위해,
+                    if (s.length() == 0) return;
+                    Text.resetTextView(calAcquisitionPriceText);
+                    Text.resetTextView(calAcquisitionRateText);
+                }
             }
         });
 
@@ -129,6 +139,14 @@ public class AcquisitionTaxFragment extends Fragment {
                         return;
                 }
 
+            }
+        });
+
+        acquisitionHelpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "acquisiton_help_button");
+                helpPopupWindow();
             }
         });
 
@@ -211,8 +229,8 @@ public class AcquisitionTaxFragment extends Fragment {
     private AdapterView.OnItemSelectedListener mOnAcquisitionTypeSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            resetEditText(acquisitionPriceEdit);
-            resetEditText(acquisitionSquareEdit);
+            Text.resetEditText(acquisitionPriceEdit);
+            Text.resetEditText(acquisitionSquareEdit);
 
             Log.i(TAG, "onItemSelected() entered!!");
             String selItem= (String) acquisitionTypeSpinner.getSelectedItem();
@@ -241,7 +259,7 @@ public class AcquisitionTaxFragment extends Fragment {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-            resetEditText(acquisitionSquareEdit);
+            Text.resetEditText(acquisitionSquareEdit);
             Log.i(TAG, "onItemSelected() entered!!");
             String selItem= (String) squareMethodSpinner.getSelectedItem();
             Log.i(TAG, "Spinner selected item = "+selItem);
@@ -268,7 +286,41 @@ public class AcquisitionTaxFragment extends Fragment {
         }
     };
 
-    public void resetEditText(EditText editText) {
-        editText.setText("");
+    private void helpPopupWindow() {
+        final View layout;
+        try {
+            //  LayoutInflater 객체와 시킴
+            final LayoutInflater inflater = (LayoutInflater) AcquisitionTaxFragment.this.getActivity()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            layout = inflater.inflate(R.layout.help_popup,
+                    (ViewGroup) getActivity().findViewById(R.id.help_popup_element));
+
+            final LinearLayout top = (LinearLayout) layout.findViewById(R.id.help_popup_linear);
+            TextView title = (TextView) layout.findViewById(R.id.help_popup_title);
+            Button help_popup_btn = (Button) layout.findViewById(R.id.help_popup_btn);
+
+//            if (mHeightPixels <= 800) windowHeight = 200;
+            pwindo = new PopupWindow(layout,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            TextView tv1 = new TextView(this.getActivity());
+            TextView tv2 = new TextView(this.getActivity());
+
+            title.setText(R.string.acquisition_help_title);
+            tv1.setText(R.string.acquisition_help_detail1);
+            tv2.setText(R.string.acquisition_help_detail2);
+            top.addView(tv1);
+            top.addView(tv2);
+
+            help_popup_btn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    pwindo.dismiss();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gkwak.earningscalculator.R;
+import com.gkwak.earningscalculator.utils.Keyborad;
 
 import java.text.DecimalFormat;
 
@@ -110,6 +111,32 @@ public class CommissionFragment extends Fragment {
 
         calCommissionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                if (dealingPriceEdit.getText().length() == 0 && spinnerPosition == 0) {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.commission_dealing_price_warning_toast), Toast.LENGTH_LONG).show();
+                    dealingPriceEdit.requestFocus();
+                    return;
+                }
+
+                if (depositPriceEdit.getText().length() == 0 && spinnerPosition == 1) {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.commission_deposit_price_warning_toast), Toast.LENGTH_LONG).show();
+                    depositPriceEdit.requestFocus();
+                    return;
+                }
+
+                if (depositPriceEdit.getText().length() == 0 && spinnerPosition == 2) {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.commission_deposit_price_warning_toast), Toast.LENGTH_LONG).show();
+                    depositPriceEdit.requestFocus();
+                    return;
+                }
+
+                if (commissionMonthlyPriceEdit.getText().length() == 0 && spinnerPosition == 2) {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.commission_monthly_price_warning_toast), Toast.LENGTH_LONG).show();
+                    commissionMonthlyPriceEdit.requestFocus();
+                    return;
+                }
+
+                Keyborad.hideKeyboard(getContext(), dealingPriceEdit);
                 switch (spinnerPosition) {
                     case 0:
                         calDealingCommissionResult();
