@@ -24,4 +24,59 @@
         <item>원시취득, 상속(농지 외)</item>
         <item>무상취득(증여)</item>
     </string-array>
+
+    <string-array name="has_house">
+        <item>예 (유주택자)</item>
+        <item>아니오 (무주택자)</item>
+    </string-array>
+
+    <string-array name="no_house_period">
+        <item>"0년"</item>
+        <item>"1년 미만"</item>
+        <item>"1년 이상 ~ 2년 미만"</item>
+        <item>"2년 이상 ~ 3년 미만"</item>
+        <item>"3년 이상 ~ 4년 미만"</item>
+        <item>"4년 이상 ~ 5년 미만"</item>
+        <item>"5년 이상 ~ 6년 미만"</item>
+        <item>"6년 이상 ~ 7년 미만"</item>
+        <item>"7년 이상 ~ 8년 미만"</item>
+        <item>"8년 이상 ~ 9년 미만"</item>
+        <item>"9년 이상 ~ 10년 미만"</item>
+        <item>"10년 이상 ~ 11년 미만"</item>
+        <item>"11년 이상 ~ 12년 미만"</item>
+        <item>"12년 이상 ~ 13년 미만"</item>
+        <item>"13년 이상 ~ 14년 미만"</item>
+        <item>"14년 이상 ~ 15년 미만"</item>
+        <item>"15년 이상"</item>
+    </string-array>
+
+    <string-array name="number_of_family">
+        <item>"0명"</item>
+        <item>"1명"</item>
+        <item>"2명"</item>
+        <item>"3명"</item>
+        <item>"4명"</item>
+        <item>"5명"</item>
+        <item>"6명 이상"</item>
+    </string-array>
+
+    <string-array name="subscription_account_period">
+        <item>"6개월 미만"</item>
+        <item>"6개월 이상 ~ 1년 미만"</item>
+        <item>"1년 이상 ~ 2년 미만"</item>
+        <item>"2년 이상 ~ 3년 미만"</item>
+        <item>"3년 이상 ~ 4년 미만"</item>
+        <item>"4년 이상 ~ 5년 미만"</item>
+        <item>"5년 이상 ~ 6년 미만"</item>
+        <item>"6년 이상 ~ 7년 미만"</item>
+        <item>"7년 이상 ~ 8년 미만"</item>
+        <item>"8년 이상 ~ 9년 미만"</item>
+        <item>"9년 이상 ~ 10년 미만"</item>
+        <item>"10년 이상 ~ 11년 미만"</item>
+        <item>"11년 이상 ~ 12년 미만"</item>
+        <item>"12년 이상 ~ 13년 미만"</item>
+        <item>"13년 이상 ~ 14년 미만"</item>
+        <item>"14년 이상 ~ 15년 미만"</item>
+        <item>"15년 이상"</item>
+    </string-array>
 </resources>
