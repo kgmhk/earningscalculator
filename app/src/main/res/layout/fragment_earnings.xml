@@ -261,14 +261,14 @@
                         android:layout_width="100dp" />
 
                     <EditText
+                        android:id="@+id/loan_rate_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="numberSigned|numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/loan_rate_edit"
                         android:layout_weight="1"
+                        android:ems="10"
                         android:gravity="right|center_vertical"
                         android:hint="0"
+                        android:inputType="numberDecimal"
                         android:maxLength="10" />
 
                     <TextView
