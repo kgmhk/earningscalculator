@@ -8,6 +8,7 @@
     <string name="fragment_4">평형 계산</string>
     <string name="fragment_5">취득세</string>
     <string name="fragment_6">청약가점계산</string>
+    <string name="fragment_7">예금이자계산</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -116,6 +117,18 @@
     <string name="acquisition_help_title">취득세 계산</string>
     <string name="acquisition_help_detail1">취득세 계산은 부동산 취득세 요율에 따라 계산됩니다.</string>
     <string name="acquisition_help_detail2">정확한 세율은 126 국세청을 이용해주세요.</string>
+
+    <string name="input_deposit_info">예금 계산 정보 입력</string>
+    <string name="deposit_amount_text">예치금액</string>
+    <string name="deposit_period_text">예금기간</string>
+    <string name="deposit_interest_rate_text">연이자율</string>
+    <string name="deposit_interest_tax_text">이자과세</string>
+    <string name="deposit_result_text">예금 이자 계산 결과</string>
+    <string name="principal_sum_text">원금합계</string>
+    <string name="interest_before_tax_text">세전이자</string>
+    <string name="interest_tax_result_text">이자과세</string>
+    <string name="interest_total_result_text">세후 수령액</string>
+    <string name="deposit_input_warning_toast">모든 항목을 입력해 주세요.</string>
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.

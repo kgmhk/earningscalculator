@@ -15,6 +15,7 @@ import com.gkwak.earningscalculator.R;
 import com.gkwak.earningscalculator.adapters.MyAdapter;
 import com.gkwak.earningscalculator.fragments.AcquisitionTaxFragment;
 import com.gkwak.earningscalculator.fragments.CommissionFragment;
+import com.gkwak.earningscalculator.fragments.DepositInterestFragment;
 import com.gkwak.earningscalculator.fragments.EarningsFragment;
 import com.gkwak.earningscalculator.fragments.InterestFragment;
 import com.gkwak.earningscalculator.fragments.SquareMeterFragment;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new SquareMeterFragment(), getResources().getString(R.string.fragment_4));
         adapter.addFragment(new AcquisitionTaxFragment(), getResources().getString(R.string.fragment_5));
         adapter.addFragment(new SubscriptionPlusFragment(), getResources().getString(R.string.fragment_6));
+        adapter.addFragment(new DepositInterestFragment(), getResources().getString(R.string.fragment_7));
 //        adapter.addFragment(new MyFragment(), "Category 4");
 //        adapter.addFragment(new MyFragment(), "Category 5");
 //        adapter.addFragment(new MyFragment(), "Category 6");

@@ -79,4 +79,15 @@
         <item>"14년 이상 ~ 15년 미만"</item>
         <item>"15년 이상"</item>
     </string-array>
+
+    <string-array name="deposit_interest_rate">
+        <item>"단리"</item>
+        <item>"월복리"</item>
+    </string-array>
+    
+    <string-array name="deposit_interest_tax">
+        <item>"일반과세"</item>
+        <item>"비과세"</item>
+        <item>"세금우대"</item>
+    </string-array>
 </resources>
