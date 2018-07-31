@@ -61,7 +61,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:gravity="right|center"
+                        android:inputType="number"
+                        android:maxLength="15" />
 
                     <TextView
                         android:id="@+id/deposit_currency"
@@ -95,7 +97,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:gravity="right|center"
+                        android:inputType="number"
+                        android:maxLength="3" />
 
                     <TextView
                         android:id="@+id/deposit_period_duration"
@@ -147,7 +151,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:ems="10"
-                                android:inputType="numberDecimal" />
+                                android:gravity="right|center"
+                                android:inputType="numberDecimal"
+                                android:maxLength="5" />
 
                             <TextView
                                 android:id="@+id/textView16"
@@ -204,7 +210,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:ems="10"
+                                android:gravity="right|center"
                                 android:inputType="numberDecimal"
+                                android:maxLength="5"
                                 android:text="15.4" />
 
                             <TextView
@@ -269,13 +277,13 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/pricipal_sum_edit"
+                        android:id="@+id/principal_sum_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
                         android:hint="0"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorBlack"
                         android:textSize="20sp" />
 
                     <TextView
@@ -309,7 +317,7 @@
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
                         android:hint="0"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorBlack"
                         android:textSize="20sp" />
 
                     <TextView
@@ -381,7 +389,7 @@
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
                         android:hint="0"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorBlack"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 

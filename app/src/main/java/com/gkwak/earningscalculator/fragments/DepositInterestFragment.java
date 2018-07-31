@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,22 +24,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gkwak.earningscalculator.R;
+import com.gkwak.earningscalculator.interfaces.InterestRateEnum;
+import com.gkwak.earningscalculator.interfaces.InterestTaxEnum;
+import com.gkwak.earningscalculator.utils.Text;
+
+import java.text.DecimalFormat;
 
 public class DepositInterestFragment extends Fragment {
     private Spinner  interestRateSpinner, interestTaxSpinner;
     private static String TAG = "DEPOSIT_FRAGMENT";
 //    private static Double PYEONG_TO_METER = 3.305785;
-//    private TextView totalSubscriptionPlusScore, noHousePeriodResult, noHousePeriodScoreResult,
-//            numberOfFamilyResult, numberOfFamilyScoreResult, subscriptionAccountPeriodResult,
-//            subscriptionAccountPeriodScoreResult;
+    private TextView principalSumResult, interestBeforeTaxResult, interestTaxResult, interestTotalResult;
     private Button calDepositBtn;
     private EditText depositAmountEdit, depositPeriodEdit, depositInterestRateEdit, depositTaxRateEdit;
 //    private LinearLayout acquisitionSquareLayout, acquisitionSquaredMethodLayout;
 //    private PopupWindow pwindo;
     private LinearLayout spcialTaxRateLayout;
 //
-    private int interestRateSpinnerPosition = 0;
-    private int interestTaxSpinnerPosition = 0;
+    private InterestRateEnum interestRateSpinnerPosition;
+    private InterestTaxEnum interestTaxSpinnerPosition;
 //    private int numberOfFamilySpinnerPosition = 0;
 //    private int subscriptionAccountPeriodSpinnerPosition = 0;
 //
@@ -45,6 +50,8 @@ public class DepositInterestFragment extends Fragment {
     private String interestTaxSpinnerString = "0년";
 //    private String numberOfFamilySpinnerString = "0명";
 //    private String subscriptionAccountPeriodSpinnerString = "0년";
+
+    final DecimalFormat df = new DecimalFormat("###,###.####");
 //
 //    private int[] noHousePeriodScoreArray = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32};
 //    private int[] numberOfFamilyScoreArray = {5, 10, 15, 20, 25, 30, 35};
@@ -63,14 +70,12 @@ public class DepositInterestFragment extends Fragment {
         depositPeriodEdit = (EditText) rootView.findViewById(R.id.deposit_period_edit);
         depositInterestRateEdit = (EditText) rootView.findViewById(R.id.deposit_interest_rate_edit);
         depositTaxRateEdit = (EditText) rootView.findViewById(R.id.deposit_special_interest_rate_edit);
-//        totalSubscriptionPlusScore = (TextView) rootView.findViewById(R.id.total_subscription_plus_score_edit);
-//        noHousePeriodResult = (TextView) rootView.findViewById(R.id.no_house_period_result);
-//        noHousePeriodScoreResult = (TextView) rootView.findViewById(R.id.no_house_period_score_result);
-//        numberOfFamilyResult = (TextView) rootView.findViewById(R.id.number_of_family_result);
-//        numberOfFamilyScoreResult = (TextView) rootView.findViewById(R.id.number_of_family_score_result);
-//        subscriptionAccountPeriodResult = (TextView) rootView.findViewById(R.id.subscription_account_period_result);
-//        subscriptionAccountPeriodScoreResult = (TextView) rootView.findViewById(R.id.subscription_account_period_score_result);
-//
+
+        principalSumResult = (TextView) rootView.findViewById(R.id.principal_sum_edit);
+        interestBeforeTaxResult = (TextView) rootView.findViewById(R.id.interest_before_tax_edit);
+        interestTaxResult = (TextView) rootView.findViewById(R.id.interest_tax_result_edit);
+        interestTotalResult = (TextView) rootView.findViewById(R.id.interest_total_result_edit);
+
         interestRateSpinner = (Spinner) rootView.findViewById(R.id.deposit_interest_rate_spinner);
         ArrayAdapter interestRateAdapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.deposit_interest_rate, android.R.layout.simple_spinner_item);
@@ -99,8 +104,22 @@ public class DepositInterestFragment extends Fragment {
 //        subscriptionAccountPeriodSpinner.setAdapter(subscriptionAccountPeriodSpinnerAdapter);
 //        subscriptionAccountPeriodSpinner.setOnItemSelectedListener(mOnSubscriptionAccountPeriodSpinnerListener);
 
-        final String[] acquisitionSquareEditTempResult = {""};
-        final String[] acquisitionPriceEditTempResult = {""};
+        final String[] depositAmountEditTemp = {""};
+        final String[] depositPeriodEditTemp = {""};
+
+        depositAmountEdit.addTextChangedListener(new TextWatcher(){
+            public void afterTextChanged(Editable s) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+
+                if(!s.toString().equals(depositAmountEditTemp[0])){     // StackOverflow를 막기위해,
+                    if (s.length() == 0) return;
+                    depositAmountEditTemp[0] = df.format(Long.parseLong(s.toString().replaceAll(",", "")));   // 에딧텍스트의 값을 변환하여, result에 저장.
+                    depositAmountEdit.setText(depositAmountEditTemp[0]);    // 결과 텍스트 셋팅.
+                    depositAmountEdit.setSelection(depositAmountEditTemp[0].length());     // 커서를 제일 끝으로 보냄.
+                }
+            }
+        });
 
         calDepositBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -109,6 +128,7 @@ public class DepositInterestFragment extends Fragment {
             Log.i(TAG, "period = " + depositPeriodEdit.getText().toString());
             Log.i(TAG, "rate = " + depositInterestRateEdit.getText().toString());
             Log.i(TAG, "tax = " + depositTaxRateEdit.getText().toString());
+            Log.i(TAG, "interest rate  = "+ interestRateSpinnerPosition.ordinal());
 
             if (depositAmountEdit.getText().length() == 0
                     || depositPeriodEdit.getText().length() ==0
@@ -118,31 +138,42 @@ public class DepositInterestFragment extends Fragment {
                 return;
             }
 
-            int depositAmount = Integer.valueOf(depositAmountEdit.getText().toString());
-            int depositPeriod = Integer.valueOf(depositPeriodEdit.getText().toString());
+            Float depositAmount = Float.valueOf(depositAmountEdit.getText().toString().replaceAll(",", ""));
+            Float depositPeriod = Float.valueOf(depositPeriodEdit.getText().toString());
             Float depositInterestRate = Float.valueOf(depositInterestRateEdit.getText().toString());
             Float depositInterestTax = Float.valueOf(depositTaxRateEdit.getText().toString());
 
+            if (InterestRateEnum.SimpleInterest == interestRateSpinnerPosition) {
+                Float interestAmount = depositAmount * ( depositInterestRate / 100 ) * ( depositPeriod / 12 );
+                Float interestTax = interestAmount * ( depositInterestTax / 100 );
+                Log.i(TAG, "interestAmount = " + interestAmount);
+                Log.i(TAG, "interestTax = " + interestTax);
+
+                principalSumResult.setText(df.format(depositAmount.longValue()));
+                interestBeforeTaxResult.setText(df.format(interestAmount.longValue()));
+                interestTaxResult.setText("- " + df.format(interestTax.longValue()));
+                interestTotalResult.setText(df.format((long)(depositAmount + interestAmount - interestTax)));
+            } else {
+                double tempRate = (1 + (depositInterestRate / 100) / 12 );
+                double interestAmount = depositAmount * Math.pow( tempRate, depositPeriod);
+                double interestTax = (interestAmount - depositAmount) * ( depositInterestTax / 100 );
+                Log.i(TAG, "interestAmount = " + interestAmount);
+                Log.i(TAG, "interestTax = " + interestTax);
+
+                principalSumResult.setText(df.format(depositAmount.longValue()));
+                interestBeforeTaxResult.setText(df.format((long)(interestAmount - depositAmount)));
+                interestTotalResult.setText(df.format((long)(interestAmount - interestTax)));
+                interestTaxResult.setText("- " + df.format((long)(interestTax)));
+            }
 
 
-//                int noHouseScore = noHousePeriodScoreArray[noHousePeriodSpinnerPosition];
-//                int numberOfFamilyScore = numberOfFamilyScoreArray[numberOfFamilySpinnerPosition];
-//                int subscriptionAccountScore = periodOfSubscriptionAccountScoreArray[subscriptionAccountPeriodSpinnerPosition];
-//
-//                int result = noHouseScore + numberOfFamilyScore + subscriptionAccountScore;
-//
-//                totalSubscriptionPlusScore.setText(result + "");
-//
-//                noHousePeriodResult.setText(noHousePeriodSpinnerString);
-//                noHousePeriodScoreResult.setText(noHouseScore + "점");
-//
-//                numberOfFamilyResult.setText(numberOfFamilySpinnerString);
-//                numberOfFamilyScoreResult.setText(numberOfFamilyScore + "점");
-//
-//                subscriptionAccountPeriodResult.setText(subscriptionAccountPeriodSpinnerString);
-//                subscriptionAccountPeriodScoreResult.setText(subscriptionAccountScore + "점");
 
-                Log.i(TAG, "button clicked");
+
+
+
+
+
+            Log.i(TAG, "button clicked");
             }
         });
 
@@ -157,12 +188,13 @@ public class DepositInterestFragment extends Fragment {
             Log.i(TAG, "mOnHasHouseSpinnerListener() entered!!");
             String selItem= (String) interestRateSpinner.getSelectedItem();
             Log.i(TAG, "Spinner selected item = "+selItem);
-            interestRateSpinnerPosition = position;
+            interestRateSpinnerPosition = InterestRateEnum.SimpleInterest;
             interestRateSpinnerString = selItem;
 
             switch (position) {
                 case 0:
                     Log.i(TAG, "clicked positon 0");
+                    interestRateSpinnerPosition = InterestRateEnum.SimpleInterest;
 //                    noHousePeriodlayout.setVisibility(View.GONE);
 //                    noHousePeriodSpinnerPosition = 0;
 //                    noHousePeriodSpinnerString = "0년";
@@ -174,6 +206,7 @@ public class DepositInterestFragment extends Fragment {
 //                    clearAllOfText();
                     return;
                 default:
+                    interestRateSpinnerPosition = InterestRateEnum.CompoundInterest;
 //                    noHousePeriodlayout.setVisibility(View.VISIBLE);
 //                    noHousePeriodSpinner.setSelection(0);
 //                    numberOfFamilySpinner.setSelection(0);
@@ -200,20 +233,23 @@ public class DepositInterestFragment extends Fragment {
             String selItem= (String) interestTaxSpinner.getSelectedItem();
             Log.i(TAG, "Spinner selected item = "+selItem);
 
-            interestTaxSpinnerPosition = position;
+            interestTaxSpinnerPosition = InterestTaxEnum.GeneralTaxation;
             interestTaxSpinnerString = selItem;
 
             switch (position) {
                 case 0:
                     spcialTaxRateLayout.setVisibility(View.GONE);
+                    interestTaxSpinnerPosition = InterestTaxEnum.GeneralTaxation;
                     return;
                 case 1:
                     Log.i(TAG, "select position 1");
                     spcialTaxRateLayout.setVisibility(View.GONE);
+                    interestTaxSpinnerPosition = InterestTaxEnum.TaxExemption;
                     return;
                 default:
                     Log.i(TAG, "selected position default");
                     spcialTaxRateLayout.setVisibility(View.VISIBLE);
+                    interestTaxSpinnerPosition = InterestTaxEnum.TaxBreak;
                     return;
             }
         }
