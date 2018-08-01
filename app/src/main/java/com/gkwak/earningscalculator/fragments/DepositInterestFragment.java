@@ -240,16 +240,19 @@ public class DepositInterestFragment extends Fragment {
                 case 0:
                     spcialTaxRateLayout.setVisibility(View.GONE);
                     interestTaxSpinnerPosition = InterestTaxEnum.GeneralTaxation;
+                    depositTaxRateEdit.setText("15.4");
                     return;
                 case 1:
                     Log.i(TAG, "select position 1");
                     spcialTaxRateLayout.setVisibility(View.GONE);
                     interestTaxSpinnerPosition = InterestTaxEnum.TaxExemption;
+                    depositTaxRateEdit.setText("15.4");
                     return;
                 default:
                     Log.i(TAG, "selected position default");
                     spcialTaxRateLayout.setVisibility(View.VISIBLE);
                     interestTaxSpinnerPosition = InterestTaxEnum.TaxBreak;
+                    depositTaxRateEdit.setText("9.5");
                     return;
             }
         }

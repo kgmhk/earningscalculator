@@ -26,7 +26,7 @@ import java.text.DecimalFormat;
 
 public class InstallmentSavingsFragment extends Fragment {
     private Spinner  interestRateSpinner, interestTaxSpinner;
-    private static String TAG = "INSTALLMENT_SAVINGS_FRAGMENT";
+    private static String TAG = "INSTALLMENT_FRAGMENT";
 //    private static Double PYEONG_TO_METER = 3.305785;
     private TextView principalSumResult, interestBeforeTaxResult, interestTaxResult, interestTotalResult;
     private Button calDepositBtn;
@@ -231,16 +231,19 @@ public class InstallmentSavingsFragment extends Fragment {
                 case 0:
                     spcialTaxRateLayout.setVisibility(View.GONE);
                     interestTaxSpinnerPosition = InterestTaxEnum.GeneralTaxation;
+                    depositTaxRateEdit.setText("15.4");
                     return;
                 case 1:
                     Log.i(TAG, "select position 1");
                     spcialTaxRateLayout.setVisibility(View.GONE);
                     interestTaxSpinnerPosition = InterestTaxEnum.TaxExemption;
+                    depositTaxRateEdit.setText("15.4");
                     return;
                 default:
                     Log.i(TAG, "selected position default");
                     spcialTaxRateLayout.setVisibility(View.VISIBLE);
                     interestTaxSpinnerPosition = InterestTaxEnum.TaxBreak;
+                    depositTaxRateEdit.setText("9.5");
                     return;
             }
         }
@@ -250,113 +253,4 @@ public class InstallmentSavingsFragment extends Fragment {
             Log.i(TAG, "onNothingSelected() entered!!");
         }
     };
-
-//    private AdapterView.OnItemSelectedListener mOnNumberOfFamilySpinnerListener = new AdapterView.OnItemSelectedListener() {
-//        @Override
-//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//
-//            Log.i(TAG, "mOnNumberOfFamilySpinnerListener() entered!!");
-//            String selItem= (String) numberOfFamilySpinner.getSelectedItem();
-//            Log.i(TAG, "Spinner selected item = "+selItem);
-//
-//            numberOfFamilySpinnerPosition = position;
-//            numberOfFamilySpinnerString = selItem;
-//
-//            switch (position) {
-//                case 0:
-//                    return;
-//                case 1:
-//                    Log.i(TAG, "select position 1");
-//                    return;
-//                default:
-//                    return;
-//            }
-//        }
-//
-//        @Override
-//        public void onNothingSelected(AdapterView<?> parent) {
-//            Log.i(TAG, "onNothingSelected() entered!!");
-//        }
-//    };
-//
-//    private AdapterView.OnItemSelectedListener mOnSubscriptionAccountPeriodSpinnerListener = new AdapterView.OnItemSelectedListener() {
-//        @Override
-//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//
-//            Log.i(TAG, "mOnNumberOfFamilySpinnerListener() entered!!");
-//            String selItem= (String) subscriptionAccountPeriodSpinner.getSelectedItem();
-//            Log.i(TAG, "Spinner selected item = "+selItem);
-//
-//            subscriptionAccountPeriodSpinnerPosition = position;
-//            subscriptionAccountPeriodSpinnerString = selItem;
-//
-//            switch (position) {
-//                case 0:
-//                    return;
-//                case 1:
-//                    Log.i(TAG, "select position 1");
-//                    return;
-//                default:
-//                    return;
-//            }
-//        }
-//
-//        @Override
-//        public void onNothingSelected(AdapterView<?> parent) {
-//            Log.i(TAG, "onNothingSelected() entered!!");
-//        }
-//    };
-//
-//    private void helpPopupWindow() {
-//        final View layout;
-//        try {
-//            //  LayoutInflater 객체와 시킴
-//            final LayoutInflater inflater = (LayoutInflater) DepositInterestFragment.this.getActivity()
-//                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//
-//            layout = inflater.inflate(R.layout.help_popup,
-//                    (ViewGroup) getActivity().findViewById(R.id.help_popup_element));
-//
-//            final LinearLayout top = (LinearLayout) layout.findViewById(R.id.help_popup_linear);
-//            TextView title = (TextView) layout.findViewById(R.id.help_popup_title);
-//            Button help_popup_btn = (Button) layout.findViewById(R.id.help_popup_btn);
-//
-////            if (mHeightPixels <= 800) windowHeight = 200;
-//            pwindo = new PopupWindow(layout,
-//                    RelativeLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//            pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-//
-//            TextView tv1 = new TextView(this.getActivity());
-//            TextView tv2 = new TextView(this.getActivity());
-//
-//            title.setText(R.string.acquisition_help_title);
-//            tv1.setText(R.string.acquisition_help_detail1);
-//            tv2.setText(R.string.acquisition_help_detail2);
-//            top.addView(tv1);
-//            top.addView(tv2);
-//
-//            help_popup_btn.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//                    pwindo.dismiss();
-//                }
-//            });
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    private void clearAllOfText() {
-//        totalSubscriptionPlusScore.setText("0");
-//
-//        noHousePeriodResult.setText("0");
-//        noHousePeriodScoreResult.setText("0");
-//
-//        numberOfFamilyResult.setText("0");
-//        numberOfFamilyScoreResult.setText("0");
-//
-//        subscriptionAccountPeriodResult.setText("0");
-//        subscriptionAccountPeriodScoreResult.setText("0");
-//    }
 }

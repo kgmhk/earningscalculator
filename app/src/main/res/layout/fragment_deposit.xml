@@ -108,7 +108,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="@string/duration"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -156,7 +156,7 @@
                                 android:maxLength="5" />
 
                             <TextView
-                                android:id="@+id/textView16"
+                                android:id="@+id/deposit_interest_rate_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -216,7 +216,7 @@
                                 android:text="15.4" />
 
                             <TextView
-                                android:id="@+id/textView16"
+                                android:id="@+id/deposit_special_interest_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -379,6 +379,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/interest_total_result_text"
+                        android:textColor="@color/colorBlack"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -386,7 +387,7 @@
                         android:id="@+id/interest_total_result_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="1.00"
                         android:gravity="right|center_vertical"
                         android:hint="0"
                         android:textColor="@color/colorBlack"
@@ -399,6 +400,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/currency"
+                        android:textColor="@color/colorBlack"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
