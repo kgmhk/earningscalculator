@@ -237,7 +237,7 @@ public class InstallmentSavingsFragment extends Fragment {
                     Log.i(TAG, "select position 1");
                     spcialTaxRateLayout.setVisibility(View.GONE);
                     interestTaxSpinnerPosition = InterestTaxEnum.TaxExemption;
-                    depositTaxRateEdit.setText("15.4");
+                    depositTaxRateEdit.setText("0");
                     return;
                 default:
                     Log.i(TAG, "selected position default");
