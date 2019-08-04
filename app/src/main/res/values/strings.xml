@@ -10,6 +10,7 @@
     <string name="fragment_6">청약가점계산</string>
     <string name="fragment_7">예금이자계산</string>
     <string name="fragment_8">적금이자계산</string>
+    <string name="fragment_9">월세 인상률 계산기</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -135,6 +136,20 @@
     <string name="installment_savings_result_text">적금 이자 계산 결과</string>
 
     <string name="interest_warning_info">* 월단위로 계산된 이자이기 때문에 일단위로 계산되는 금융기관의 적금이자와는 차이가 있습니다.</string>
+
+    <string name="input_monthly_fee_increase_info">월세 인상률 계산 정보 입력</string>
+    <string name="input_monthly_fee_before">변경 전</string>
+    <string name="input_monthly_fee_after">변경 후</string>
+    <string name="monthly_fee_before_deposit">보증금</string>
+    <string name="monthly_fee_before_monthly_fee">월세</string>
+    <string name="monthly_fee_increase_rate">인상률</string>
+    <string name="monthly_fee_increase_result">월세 인상률 계산 결과</string>
+    <string name="yearly_fee">연임대료</string>
+    <string name="increase_rate_info">인상률은 은행기준금리에 따라 변동될 수 있습니다.</string>
+    <string name="before_deposit_warning_toast">변경 전 보증금을 입력 해주세요.</string>
+    <string name="before_monthly_fee_warning_toast">변경 전 월세를 입력 해주세요.</string>
+    <string name="after_deposit_warning_toast">변경 후 보증금을 입력 해주세요.</string>
+    <string name="increase_rate_warning_toast">인상률을 입력 해주세요.</string>
 
     <!-- -
         This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.

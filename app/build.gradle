@@ -4,11 +4,11 @@ android {
     compileSdkVersion 26
     buildToolsVersion '25.0.0'
     defaultConfig {
-        applicationId "com.gkwak.earningscalculator"
+         applicationId "com.gkwak.earningscalculator"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 15
-        versionName "2.1"
+        versionCode 16
+        versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
